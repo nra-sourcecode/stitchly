@@ -10,3 +10,22 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+.signup-form h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.signup-form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+.input-field {
+  border-radius: 6px;
+  padding: 10px;
+}
+.btn-primary {
+  background: #4b6ef5;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+}
