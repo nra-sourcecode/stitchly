@@ -1,9 +1,10 @@
 class ProjectsController < ApplicationController
-  before_action :authenticate_user!
+# before_action :authenticate_user!
 
-  def new
-    
+  # Home page showing two swimlanes
+  def index
+    @ongoing_projects = current_user.projects.where(status: "ongoing")
+    @finished_projects = current_user.projects.where(status: "finished")
   end
-
-
 end
+

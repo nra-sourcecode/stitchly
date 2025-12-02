@@ -1,12 +1,29 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+/* Add a black background color to the top navigation */
+.topnav {
+  background: $light-beige;
+  overflow: hidden;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+/* Add an active class to highlight the current page */
+.topnav a.active {
+  background-color: $beige;
+  color: $pink;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+/* Hide the link that should open and close the topnav on small screens */
+.topnav .icon {
+  display: none;
+}
+
+.fa-solid {
+  color: $pink;
+}
+
+/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
 }
