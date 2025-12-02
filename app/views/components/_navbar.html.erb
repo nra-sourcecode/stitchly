@@ -1,0 +1,26 @@
+<body>
+
+<div class="topnav" id="myTopnav">
+  <%# <a href="#home" class="active">back optional button</a> %>
+  <i class="fa-solid fa-angle-left"></i>
+
+
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa-solid fa-cat"></i>
+  </a>
+</div>
+
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
+
+</body>
+</html>
