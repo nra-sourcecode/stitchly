@@ -12,4 +12,8 @@ Rails.application.routes.draw do
 resources :projects
 root "projects#index"
 
+resources :chats, only: :show do
+  resources :messages, only: [:new, :create]
+
+  end
 end
