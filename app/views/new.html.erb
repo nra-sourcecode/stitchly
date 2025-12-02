@@ -1,0 +1,17 @@
+<h1>Login</h1>
+<%= form_with(url: login_path, method: :post, local: true, class: "login-form") do |f| %>
+  <div class="mb-3">
+    <%= f.label :email %>
+    <%= f.email_field :email, class: "form-control input-field" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :password %>
+    <%= f.password_field :password, class: "form-control input-field" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.submit "Log in", class: "btn btn-primary" %>
+  </div>
+<% end %>
+<button class="btn btn-primary round-btn">+</button>

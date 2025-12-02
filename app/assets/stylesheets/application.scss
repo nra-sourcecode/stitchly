@@ -10,10 +10,13 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
-
+.btn-primary {
+  background-color: #EDDBC7; /* your color */
+  color: #A7727D;
+}
 .signup-form h2 {
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 1rem;       
 }
 .signup-form {
   max-width: 400px;
@@ -23,9 +26,85 @@
   border-radius: 6px;
   padding: 10px;
 }
+.round-btn {
+  width: 50px;          /* same width and height */
+  height: 50px;
+  border-radius: 50%;   /* makes it round */
+  border: none;
+  background: #A7727D;
+  color: #F8EAD8;
+  font-size: 24px;
+  cursor: pointer;       
+}
+.round-btn {
+  width: 50px;          /* same width and height */
+  height: 50px;
+  border-radius: 50%;   /* makes it round */
+  border: none;
+  background: #A7727D;
+  color: #F8EAD8;
+  font-size: 24px;
+  cursor: pointer;       
+}
+.signup-form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+.signin-card {
+  max-width: 400px;
+  margin: 0 auto;
+}
+.input-field {
+  border-radius: 6px;
+  padding: 10px;
+}
 .btn-primary {
-  background: #4b6ef5;
-  color: white;
+  background: #A7727D;
+  color: #F8EAD8;  /* make sure to include # for hex code */
   padding: 10px 20px;
   border-radius: 6px;
+}
+.login-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+.signup-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+.background-img {
+  background-image: url(a93541069f062a167747deace5ab59eb472d07ce.png);
+  height: 100vh;
+}
+.signin-image {
+  width: 150px;
+  height: auto;
+  margin-bottom: 20px;
+}
+.signup-image {
+  width: 150px;
+  height: auto;
+  margin-bottom: 20px;
+}
+.form button:hover {
+  background-color: #F8EAD8;
+}
+.card button:hover {
+  background-color: #F8EAD8;
+}
+.login-card {
+  background-color: white;
+  position: relative;
+  bottom: 0;
+  width:100%;
+}
+.signup-form {
+  background-color: white;
+  position: relative;
+  bottom: 0;
+  width:100%;
 }
