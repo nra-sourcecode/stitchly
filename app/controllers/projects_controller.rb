@@ -8,6 +8,12 @@ class ProjectsController < ApplicationController
     @project.user = current_user
 
     if @project.save
+      yarn_params
+      ids = params[:project][:yarn_ids]
+      ids.each do |yarn_id|
+        ProjectYarn.create!(yarn: Yarn.find(yarn_id), project: @project)
+      end
+
       redirect_to project_path(@project)
     else
       render :new, status: :unprocessable_entity
@@ -19,4 +25,9 @@ class ProjectsController < ApplicationController
   def project_params
     params.require(:project).permit(:title, :designer, :category, :needle_size, :product_size, :difficulty)
   end
+
+    def yarn_params
+      params.require(:project).permit(:yarn_ids)
+    end
+
 end

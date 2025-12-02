@@ -7,10 +7,33 @@
 <%= f.input :needle_size %>
 <%= f.input :product_size, :label => "Size", collection: [ "xxxs", "xxs", "xs", "s", "m", "l", "xl", "xxl", "3xl", "4xl", "5xl" ] %>
 <%= f.input :difficulty, :label => "Difficult", collection: [ "Easy", "Intermediate", "Difficult" ] %>
-<%# <div class="d-flex justify-content-between p-3">
-<div><%= f.input :pattern, as: :file %></div>
-<%# <div><%= f.input :image, as: :file %></div>
-<%# </div>   %>
+<%= f.association :yarns, collection: Yarn.all, label_method: :material, value_method: :id, include_blank: false %>
+
 <div class="button"><%= f.submit %></div>
 <% end %>
+
+
+
+
+<%# <%= f.association :yarns,
+  multiple: true,
+  label_method: :material,
+  value_method: :id,
+  include_blank: false %>
+<%# <%= f.input :yarn_ids,
+  as: :select,
+  multiple: true,
+  collection: Yarn.all,
+  label_method: :material,
+  value_method: :id,
+  include_blank: false
+%>
+<%# <div class="d-flex justify-content-between p-3">
+<div><%= f.input :pattern, as: :file %>
+<%# <div><%= f.input :image, as: :file %>
+<%# </div>   %>
 </div>
+
+<%# f.association :company, label_method: :company_name, value_method: :id, include_blank: false %>
+<%# Yarn.all.map { |yarn| yarn.material.upcase } %>
+<%# <%= f.association :particular_users, collection: @all_users, input_html: { class: 'multiselectuser'} %>
