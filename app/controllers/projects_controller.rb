@@ -40,4 +40,8 @@ class ProjectsController < ApplicationController
 
 end
 
+<<<<<<< HEAD
 end
+=======
+  # Home page showing two swimlanes
+>>>>>>> 8631f678c8b0591c0ed74b3e90fed37b37c6c392
