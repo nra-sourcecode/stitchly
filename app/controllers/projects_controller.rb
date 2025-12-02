@@ -7,5 +7,9 @@ class ProjectsController < ApplicationController
     @finished_projects = current_user.projects.where(status: "finished")
     @footer = true
   end
+
+  def show
+    @project = Project.find(params[:id])
+  end
 end
 

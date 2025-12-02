@@ -1,0 +1,11 @@
+<h1><%= @project.title %></h1>
+<p><%= @project.difficulty %></p>
+   <% @tasks= @project.tasks %>
+   <%  @tasks.each do |task| %>
+   <p><%= task.comment %></p>
+   <% end %>
+   <h2>Project description</h2>
+    <p><%= @project.designer %></p>
+    <p><%= @project.category %></p>
+    <p><%= @project.needle_size %></p>
+    <p><%= @project.product_size %></p>
