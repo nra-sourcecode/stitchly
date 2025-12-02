@@ -18,7 +18,7 @@ class MessagesController < ApplicationController
 
       @ruby_llm_chat = RubyLLM.chat.with_temperature(0.7)
       build_conversation_history
-      response = @ruby_llm_chat.with_instructions(instruction_context).ask(@message.content) do |chunk|
+      response = @ruby_llm_chat.with_instructions(SYSTEM_PROMPT).ask(@message.content) do |chunk|
         next if chunk.content.blank? # skip empty chunks
 
         @assistant_message.content += chunk.content
@@ -72,9 +72,9 @@ class MessagesController < ApplicationController
     params.require(:message).permit(:content)
   end
 
-  def instruction_context
-    [SYSTEM_PROMPT, current_user.context, @problem.content].compact.join("\n\n")
-  end
+  # def instruction_context
+  #   [SYSTEM_PROMPT, @chat.content].compact.join("\n\n")
+  # end
 
   def broadcast_replace(message)
     Turbo::StreamsChannel.broadcast_replace_to(@chat, target: helpers.dom_id(message), partial: "messages/message", locals: { message: message })
