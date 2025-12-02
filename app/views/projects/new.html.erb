@@ -7,10 +7,10 @@
 <%= f.input :needle_size %>
 <%= f.input :product_size, :label => "Size", collection: [ "xxxs", "xxs", "xs", "s", "m", "l", "xl", "xxl", "3xl", "4xl", "5xl" ] %>
 <%= f.input :difficulty, :label => "Difficult", collection: [ "Easy", "Intermediate", "Difficult" ] %>
-<div class="d-flex justify-content-between p-3">
+<%# <div class="d-flex justify-content-between p-3">
 <div><%= f.input :pattern, as: :file %></div>
-<div><%= f.input :image, as: :file %></div>
-</div>
+<%# <div><%= f.input :image, as: :file %></div>
+<%# </div>   %>
 <div class="button"><%= f.submit %></div>
 <% end %>
 </div>
