@@ -1,0 +1,21 @@
+.button {
+  display: inline-block;
+  padding: 8px 16px; // (top/bottom 8px, left/right 16px)
+  background-color: #A7727D;
+  border-radius: 6px; // round corners
+  color: white; //  text
+  text-decoration: none; // no underline
+  width: auto;
+  height: 40px;
+
+  a {
+    color: white;
+  }
+
+  &:hover {
+    background-color: #EDDBC7;
+    color: white;
+    cursor: pointer;
+    box-shadow:0 8px 16px 0 rgba(0,0,0,0.6);
+  }
+}
