@@ -10,8 +10,14 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <%= render "components/navbar" %>
-    <%= yield %>
+  <body >
+    <div class="d-flex justify-content-end flex-column " >
+        <div class="p-2 bd-highlight"><%= render "components/navbar" %></div>    
+        <div class="p-2 bd-highlight"><%= yield %></div>
+      <div class="d-flex align-items-end">
+        <%= render "components/footer" %>
+      </div>
   </body>
 </html>
+
+  
