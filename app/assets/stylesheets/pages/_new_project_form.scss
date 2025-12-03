@@ -1,0 +1,36 @@
+.form-control {
+  border-radius: 10px;
+}
+
+.form-select {
+  border-radius: 10px;
+}
+
+.form-label {
+  font-size: 11px;
+}
+
+.form-control::placeholder {
+  color: #999;
+  font-size: 13px;
+}
+
+#project_pattern {
+  background-image: url(image_placeholder.jpg);
+  background-position: center center; /* ← centers it */
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 145px;
+  width: 145px;
+}
+
+#project_image {
+  background-image: url(image_placeholder.jpg);
+  background-position: center center; /* ← centers it */
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 145px;
+  width: 145px;
+}
+
+// "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.istockphoto.com%2Fphotos%2Fimage&psig=AOvVaw0KhJTtOvwFjw4XqZS5nqy9&ust=1764759250539000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCPjY9NLenpEDFQAAAAAdAAAAABAE";
