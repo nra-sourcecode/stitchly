@@ -2,6 +2,11 @@ class ProjectsController < ApplicationController
   def index
     @ongoing_projects = current_user.projects.where(status: "ongoing")
     @finished_projects = current_user.projects.where(status: "finished")
+    @footer = true
+  end
+
+  def show
+    @project = Project.find(params[:id])
   end
 
   def new
