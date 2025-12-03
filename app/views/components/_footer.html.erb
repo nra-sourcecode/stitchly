@@ -1,10 +1,22 @@
-<div class="d-flex justify-content-around align-items-center footer  border-top border-dark">
-    <i class="fa-solid fa-plus"></i>
-    <%= link_to  projects_path do%>
-       <i class="fa-solid fa-house-user"></i>
-    <% end %>
-    <i class="fa-solid fa-heart"></i>
-    <i class="fa-brands fa-github-alt"></i>
+<div class="d-flex justify-content-around align-items-center footer border-top">
+    <div class= "box d-flex flex-column align-items-center ">
+        <%= link_to  projects_path do%>
+        <i class="fa-solid fa-house-user"></i>
+        <% end %>
+        <p class="mb-0">Home</p>
+    </div>
+    <div class= "box d-flex flex-column align-items-center ">
+        <i class="fa-solid fa-plus p-0"></i>
+        <p class="mb-0">New Project</p>
+    </div>
+    <div class= "box d-flex flex-column align-items-center ">
+        <i class="fa-solid fa-heart"></i>
+        <p class="mb-0">Favorite</p>
+    </div>
+    <div class= "box d-flex flex-column align-items-center ">
+        <i class="fa-brands fa-github-alt"></i>
+        <p class="mb-0">Yarni</p>
+    </div>
 </div>
               
           
