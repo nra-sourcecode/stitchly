@@ -1,8 +1,12 @@
 class ProjectsController < ApplicationController
-  def index
+  def home
     @ongoing_projects = current_user.projects.where(status: "ongoing")
     @finished_projects = current_user.projects.where(status: "finished")
     @footer = true
+  end
+
+  def index
+    
   end
 
   def show
