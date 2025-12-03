@@ -1,0 +1,23 @@
+.signup-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+.signup-image {
+  width: 150px;
+  height: auto;
+  margin-bottom: 20px;
+}
+.signup-btn-container {
+  width: 100%;           /* wide container */
+  border-radius: 30px;   /* rounded container */
+  overflow: hidden;      /* ensures button respects border radius */
+}
+
+.signup-btn-container .btn {
+  width: 100%;           /* button fills container */
+}
+.bold-text {
+  font-weight: bold;
+}
