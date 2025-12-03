@@ -9,11 +9,14 @@ class ChatsController < ApplicationController
 
   def new
     @chat = Chat.new
+    @navbar = true
+    @text = "Yarni"
   end
 
   def create
     @chat = Chat.new
     @chat.user = current_user
+
 
     @chat.save
       # create the first assistant message
@@ -27,6 +30,8 @@ class ChatsController < ApplicationController
     @chat = Chat.find(params[:id])
     @messages = @chat.messages.order(:created_at)
     @message = Message.new
+    @navbar = true
+    @text = "Yarni"
     # @bottom_bar = true //to update once we have the bottom bar
   end
 

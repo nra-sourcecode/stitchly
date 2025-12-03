@@ -3,10 +3,13 @@ class ProjectsController < ApplicationController
     @ongoing_projects = current_user.projects.where(status: "ongoing")
     @finished_projects = current_user.projects.where(status: "finished")
     @footer = true
+    @navbar = true
+    @text = "Home"
   end
 
   def index
-    
+    @text = "My Projects"
+    @navbar = true
   end
 
   def show
