@@ -41,4 +41,15 @@
   font-size: 11px;
 }
 
+.btn.button {
+  display: inline-block;
+  padding: 8px 16px; // (top/bottom 8px, left/right 16px)
+  background-color: #a7727d;
+  border-radius: 6px; // round corners
+  color: white; //  text
+  text-decoration: none; // no underline
+  width: auto;
+  height: 40px;
+}
+
 // "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.istockphoto.com%2Fphotos%2Fimage&psig=AOvVaw0KhJTtOvwFjw4XqZS5nqy9&ust=1764759250539000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCPjY9NLenpEDFQAAAAAdAAAAABAE";

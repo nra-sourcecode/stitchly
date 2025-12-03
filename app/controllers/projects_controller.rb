@@ -20,8 +20,10 @@ class ProjectsController < ApplicationController
     if @project.save
       yarn_params
       ids = params[:project][:yarn_ids].reject(&:blank?)
+      @amount = params[:project][:project_yarn][:amount]
+      @amount = @amount.to_i
       ids.each do |yarn_id|
-        ProjectYarn.create!(yarn: Yarn.find(yarn_id.to_i), project: @project)
+        ProjectYarn.create!(yarn: Yarn.find(yarn_id.to_i), project: @project, amount: @amount)
       end
 
 
@@ -38,11 +40,15 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:title, :designer, :category, :needle_size, :product_size, :difficulty, :pattern, images: [])
+    params.require(:project).permit(:title, :designer, :category, :needle_size, :product_size, :difficulty, :pattern, images: [], project_yarns_attributes: [:id, :yarn_id, :amount])
   end
 
   def yarn_params
     params.require(:project).permit(:yarn_ids)
+  end
+
+  def project_yarn_params
+      params.require(:project).permit(:amount)
   end
 end
   # Home page showing two swimlanes

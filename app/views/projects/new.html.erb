@@ -7,11 +7,16 @@
 <%= f.input :product_size, :label => "Size", collection: [ "xxxs", "xxs", "xs", "s", "m", "l", "xl", "xxl", "3xl", "4xl", "5xl" ] %>
 <%= f.input :difficulty, :label => "Difficult", collection: [ "Easy", "Intermediate", "Difficult" ] %>
 <%= f.association :yarns, label_method: :material, value_method: :id, include_blank: false, as: :check_boxes, multiple: :true %>
+
+<%= f.simple_fields_for (:project_yarn) do |p|%>
+<%=p.input :amount%>
+<%end%>
 <div class="d-flex justify-content-between p-3">
 <div><%= f.input :pattern, as: :file %></div>
 <div><%= f.input :images, as: :file, input_html: { multiple: true } %></div>
 </div>
-<%= f.submit "Create project", class: "button" %>
+
+<%= f.button :submit, "Create project", class: "button" %>
 <% end %>
 </div>
 
