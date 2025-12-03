@@ -1,0 +1,5 @@
+<div class="message <%= message.role %>" id="<%= dom_id(message) %>">
+  <p class="message-role"><strong><%= message.assistant? ? message.role.capitalize : message.chat.user.email.capitalize %>:</strong></p>
+  <p class="message-content"><%= message.content.present? ? raw(render_markdown(message.content)) : "..." %></p>
+  <small class="message-time"><%= message.created_at.strftime("%d %b %Y %H:%M") %></small>
+</div>
