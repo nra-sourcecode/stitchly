@@ -3,4 +3,6 @@ class Project < ApplicationRecord
   has_many :project_yarns
   has_many :tasks
   has_many :yarns, through: :project_yarns
+  has_one_attached :pattern
+  has_one_attached :image
 end
