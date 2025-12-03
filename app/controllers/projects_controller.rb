@@ -19,16 +19,21 @@ class ProjectsController < ApplicationController
         ProjectYarn.create!(yarn: Yarn.find(yarn_id.to_i), project: @project)
       end
 
+
       redirect_to project_path(@project)
     else
       render :new, status: :unprocessable_entity
     end
   end
 
+  def show
+    @project = Project.find(params[:id])
+  end
+
   private
 
   def project_params
-    params.require(:project).permit(:title, :designer, :category, :needle_size, :product_size, :difficulty, :pattern, :image)
+    params.require(:project).permit(:title, :designer, :category, :needle_size, :product_size, :difficulty, :pattern, images: [])
   end
 
   def yarn_params
