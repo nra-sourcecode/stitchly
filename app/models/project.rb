@@ -4,5 +4,5 @@ class Project < ApplicationRecord
   has_many :tasks
   has_many :yarns, through: :project_yarns
   has_one_attached :pattern
-  has_one_attached :image
+  has_many_attached :images
 end

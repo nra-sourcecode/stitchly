@@ -9,7 +9,7 @@
 <%= f.association :yarns, label_method: :material, value_method: :id, include_blank: false, as: :check_boxes, multiple: :true %>
 <div class="d-flex justify-content-between p-3">
 <div><%= f.input :pattern, as: :file %></div>
-<div><%= f.input :image, as: :file %></div>
+<div><%= f.input :images, as: :file, input_html: { multiple: true } %></div>
 </div>
 <%= f.submit "Create project", class: "button" %>
 <% end %>
