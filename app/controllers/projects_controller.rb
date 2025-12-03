@@ -35,6 +35,4 @@ class ProjectsController < ApplicationController
     params.require(:project).permit(:yarn_ids)
   end
 end
-# before_action :authenticate_user!
-
   # Home page showing two swimlanes

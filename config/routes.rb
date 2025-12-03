@@ -8,12 +8,12 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
  resources :projects
 root "projects#index"
-  
+
 
   # Defines the root path route ("/")
   # root "posts#index"
 
-  resources :chats, only: :show do
-    resources :messages, only: [:new, :create]
+resources :chats, only: :show do
+  resources :messages, only: [:new, :create]
   end
 end
