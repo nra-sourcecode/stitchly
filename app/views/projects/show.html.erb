@@ -1,4 +1,4 @@
-<h1>Hello from the frontend</h1>
+
 <%# <%= cloudinary_url @project.pattern.key, height: 300, width: 400, crop: :fill %>
 
 <%=  link_to "pattern", url_for(@project.pattern) if @project.pattern.attached?  %>
@@ -10,6 +10,26 @@
 
 
 <%# <%= cl_image_tag(@project.images.key) if @project.images.attached? %>
-<img src="<%= asset_path("image_placeholder.jpg")%>" alt="">
-<h2><%= @project.title %></h2>
-<h2>jdjdjdjd</h2>
+<div class="container p-4">
+  <img src="<%= asset_path("image_placeholder.jpg")%>" alt="">
+  <h2 class="mt-4"><strong><%= @project.title %></strong></h2>
+  <p><%= @project.difficulty %></p>
+  <div>
+    <p class="mb-1">10%</p>
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+  </div>
+  <h3 class="mt-4">Project Description</h3>
+  <p><strong>Pattern:</strong><%= @project.pattern %></p>
+  <p><strong>Designer:</strong><%= @project.designer %></p>
+  <p><strong>Category:</strong><%= @project.category %></p>
+  <p><strong>Needle:</strong><%= @project.needle_size %></p>
+  <% @yarns= @project.yarns %>
+  <div class="d-flex">
+    <p><strong>Composition of Yarn:</strong>
+    <%= @yarns.map{ |yarn| yarn.material }.join(", ") %>
+  </div>
+  <div class="d-flext text-center"><div class="button ">Create Project</div></div>
+  
+</div>
