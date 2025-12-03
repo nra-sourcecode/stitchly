@@ -1,7 +1,4 @@
 class ProjectsController < ApplicationController
-  # before_action :authenticate_user!
-  # Home page showing two swimlanes
-
   def index
     @ongoing_projects = current_user.projects.where(status: "ongoing")
     @finished_projects = current_user.projects.where(status: "finished")
@@ -17,9 +14,9 @@ class ProjectsController < ApplicationController
 
     if @project.save
       yarn_params
-      ids = params[:project][:yarn_ids]
+      ids = params[:project][:yarn_ids].reject(&:blank?)
       ids.each do |yarn_id|
-        ProjectYarn.create!(yarn: Yarn.find(yarn_id), project: @project)
+        ProjectYarn.create!(yarn: Yarn.find(yarn_id.to_i), project: @project)
       end
 
       redirect_to project_path(@project)
@@ -31,11 +28,11 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:title, :designer, :category, :needle_size, :product_size, :difficulty)
+    params.require(:project).permit(:title, :designer, :category, :needle_size, :product_size, :difficulty, :pattern, :image)
   end
 
-    def yarn_params
-      params.require(:project).permit(:yarn_ids)
-    end
+  def yarn_params
+    params.require(:project).permit(:yarn_ids)
+  end
 end
   # Home page showing two swimlanes
