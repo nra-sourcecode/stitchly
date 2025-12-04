@@ -1,17 +1,16 @@
-<h1> hello </h1>
 <%# I am making a main wrapper of my page here by making a custom class for styling it in css %>
 
-<div class="container home-page-container">
+<div class="container chat_container">
   <%= turbo_stream_from @chat %>
 
   <%# this is the wrapper where I see the chat %>
 
   <%# render_markdown converts the weird text into HTML %>
-  <div id="messages" class="messages-list" data-controller="move-to-top">
+  <div id="messages" class="messages-list d-flex flex-column" data-controller="move-to-top">
     <%= render "messages/messages", messages: @chat.messages.order(:created_at) %>
   </div>
 
-  <div id="message-form" class="new-message-form sticky-bottom">
+  <div id="message-form" class="new-message-form sticky-bottom w-100">
     <%= render "messages/form", chat: @chat, message: @message %>
   </div>
 </div>
