@@ -7,7 +7,7 @@
 <%=  link_to "Pattern", url_for(@project.pattern) if @project.pattern.attached?  %>
 
 <%# <%= cl_image_tag(@project.images.key) if @project.images.attached? %>
-<div class="container p-4 m-3 d-block w-100">
+<div class="container">
   <div id="carouselExampleSlidesOnly" class="carousel slide " data-bs-ride="carousel">
     <div class="carousel-inner">   
       <% @project.images.each_with_index do |img, i| %>       
@@ -34,8 +34,6 @@
     </div>
   </div> %>
   <h3 class="mt-4">Project Description</h3>
-  <p ><strong>Pattern:</strong> <%= @project.pattern %></p>
-  <%=  link_to "Pattern", url_for(@project.pattern) if @project.pattern.attached?  %>
   <p><strong>Designer:</strong> <%= @project.designer %></p>
   <p><strong>Category:</strong> <%= @project.category %></p>
   <p><strong>Needle:</strong> <%= @project.needle_size %></p>
