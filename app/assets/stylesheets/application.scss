@@ -11,6 +11,7 @@
 @import "components/index";
 @import "pages/index";
 
+<<<<<<< HEAD
 .signup-form h2 {
   text-align: center;
   margin-bottom: 1rem;
@@ -28,4 +29,10 @@
   color: white;
   padding: 10px 20px;
   border-radius: 6px;
+=======
+@import "pages/show";
+
+body {
+  padding-bottom: 80px;
+>>>>>>> c1c3ef8b5eeb0968b042e67a2e20ebc37ad1e7ba
 }
