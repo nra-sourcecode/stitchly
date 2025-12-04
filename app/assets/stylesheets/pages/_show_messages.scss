@@ -1,0 +1,124 @@
+$bg-color: #ffffff; // Main background
+$bot-msg-bg: #EEEEEE; // Bot message background
+$border-color: #ffffff; // Border color
+$text-color: #EDDBC7; // Text color
+$user-text-color: #ffffff; // User text color
+$bot-text-color: #2e2c2c; // Bot text color
+
+
+// Main container styles
+.container.chat_container {
+  background-color: $bg-color;
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  // Messages list styles
+  .messages-list {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-bottom: 10px;
+
+    .message {
+      display: flex;
+      flex-direction: column;
+      max-width: 70%;
+      margin-bottom: 15px;
+      padding: 10px 15px;
+      border-radius: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+      &.assistant {
+        font-size: 12px;
+        background-color: $bot-msg-bg;
+        color: $bot-text-color;
+        align-self: flex-start; // Align assistant messages to the left
+
+        .message-role {
+          font-size: 12px;
+          color: $text-color;
+          margin-bottom: 5px;
+
+          strong {
+            display: block;
+            margin-bottom: 5px;
+          }
+        }
+
+        .message-content {
+          margin-bottom: 5px;
+        }
+
+        .message-time {
+          font-size: 10px;
+          color: $text-color;
+          text-align: left; // Align time to the left
+        }
+      }
+
+      &.user {
+        font-size: 12px;
+        background-color: #A7727D;
+        color: $user-text-color;
+        align-self: flex-end; // Align user messages to the right
+
+        .message-role {
+          font-size: 12px;
+          color: $text-color;
+          margin-bottom: 2px;
+
+          strong {
+            display: block;
+            margin-bottom: 2px;
+          }
+        }
+
+        .message-content {
+          margin-bottom: 2px;
+        }
+
+        .message-time {
+          font-size: 10px;
+          color: $text-color;
+          text-align: right; // Align time to the right
+        }
+      }
+    }
+  }
+
+  // New message form styles
+  .new-message-form.sticky-bottom {
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    border-top: 1px solid $border-color;
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    input[type="text"] {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid $border-color;
+      border-radius: 35px;
+      outline: none;
+      margin-right: 15px;
+    }
+
+    .send-button {
+      background-color:#A7727D;;
+      border: none;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}

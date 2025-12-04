@@ -1,5 +1,7 @@
-<%= simple_form_for [chat, message] do |f| %>
-  <% prefilled = chat.messages.any? ? "" : chat.content %>
-  <%= f.input :content, label: "Your AI knit Assistant", required: true, input_html: { value: prefilled } %>
-  <%= f.button :submit, 'Talk to Yarni', class: 'button' %>
-<% end %>
+<div class="w-100">
+  <%= simple_form_for [chat, message] do |f| %>
+    <% prefilled = chat.messages.any? ? "" : chat.content %>
+    <%= f.input :content, label: "Your AI knit Assistant", required: true, input_html: { value: prefilled } %>
+    <%= f.button :submit, 'Talk to Yarni', class: 'button' %>
+  <% end %>
+</div>
