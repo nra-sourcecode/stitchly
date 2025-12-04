@@ -1,8 +1,8 @@
 
-  <h2 class="project-status">Ongoing Projects</h2>
+  <h2 class="project-status">Ongoing Projects <span><%= link_to "See all", projects_path, class: "see-all" %></span></h2>
   <div class="projects-grid">
     <div class="project-card">
-      <img src="url(<%= url_for("sweater.webp")%>)">
+      <img src="example.jpg">
       <div class="card-body">
         <h3>Jumper</h3>
         <p class="difficulty">Difficult</p>
@@ -18,8 +18,11 @@
         <span class="progress">20%</span>
       </div>
     </div>
+  </div>
 
 
+  <h2 class="project-status">Finished Projects <span class="see-all">See all</span></h2>
+  <div class="projects-grid">
     <div class="project-card">
       <img src="example.jpg">
       <div class="card-body">
@@ -37,5 +40,5 @@
         <span class="progress">20%</span>
       </div>
     </div>
- </div>
 
+  </div>
