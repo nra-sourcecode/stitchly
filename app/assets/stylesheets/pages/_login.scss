@@ -1,0 +1,26 @@
+.login-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+
+}
+.login-image {
+  width: 150px;
+  margin-bottom: 20px;
+}
+.login-btn-container {
+  width: 100%;           /* wide container */
+  border-radius: 30px;   /* rounded container */
+  overflow: hidden;      /* ensures button respects border radius */
+}
+
+.login-btn-container .btn {
+  width: 100%;           /* button fills container */
+}
+
+.simple-link-text {
+  color: #A7727D;
+  font-size: large;
+}
+
