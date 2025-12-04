@@ -60,7 +60,6 @@ class ProjectsController < ApplicationController
       newtask.project = @project
       newtask.save
     end
-    raise
   end
 
   private
