@@ -21,6 +21,33 @@
     cursor: pointer;
     box-shadow:0 8px 16px 0 rgba(0,0,0,0.6);
   }
+  .round-btn {
+  width: auto;
+  height: 40px;
+  border-radius: 6px; // round corners
+  background-color: #A7727D;
+  color: white; //  text
+  font-size: 24px;
+  cursor: pointer;
+}
+}
+
+.round-btn {
+  width: 50px;          /* same width and height */
+  height: 50px;
+  border-radius: 50%;   /* makes it round */
+  border: none;
+  background: #A7727D;
+  color: #F8EAD8;
+  font-size: 24px;
+  cursor: pointer;       
+}
+
+.login-btn {
+  width: 100%;
+}
+.signup-btn {
+  width: 100%;
 }
 
 .floating {
