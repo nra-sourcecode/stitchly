@@ -1,4 +1,5 @@
 
+<%=  link_to "pattern", url_for(@project.pattern) if @project.pattern.attached? %>
 
 
 <%# <%= cloudinary_url @project.pattern.key, height: 300, width: 400, crop: :fill %>
