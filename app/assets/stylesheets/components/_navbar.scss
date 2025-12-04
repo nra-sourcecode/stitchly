@@ -2,15 +2,15 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  // without the z-index, the content below will be shown
+  // without the z-index, the content below will be shown in the topnav
 
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 16px;
+  padding: 16px 16px;
   background-color: $darker-beige;
   color: $black;
-  font-size: 24px;
+  font-size: 14px;
 }
 
 .topnav i {
