@@ -7,10 +7,10 @@
 
 <%# <%= cl_image_tag(@project.images.key) if @project.images.attached? %>
 <div class="container p-4 m-3 d-block w-100">
-  <div id="carouselExampleSlidesOnly" class="carousel slide m-4" data-bs-ride="carousel">
+  <div id="carouselExampleSlidesOnly" class="carousel slide " data-bs-ride="carousel">
     <div class="carousel-inner">   
-      <% @project.images.each do |img| %>       
-        <div class="carousel-item ">
+      <% @project.images.each_with_index do |img, i| %>       
+        <div class="carousel-item <%= 'active' if i == 0 %>">
           <%= cl_image_tag (img.key) if @project.images.attached? %>
         </div>
       <% end %>     
