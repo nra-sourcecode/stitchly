@@ -1,41 +1,24 @@
+<h2 class="project-status">Ongoing Projects</h2>
 
-  <h2 class="project-status">Ongoing Projects</h2>
-  <div class="projects-grid">
+<div class="projects-grid">
+  <% @projects.each do |project| %>
     <div class="project-card">
-      <img src="url(<%= url_for("sweater.webp")%>)">
+
+      <% if project.images.attached? %>
+        <img src="<%= url_for(project.images.first) %>" alt="<%= project.title %> image">
+      <% else %>
+        <img src="<%= asset_path("sweater.webp") %>" alt="Placeholder">
+      <% end %>
+
       <div class="card-body">
-        <h3>Jumper</h3>
-        <p class="difficulty">Difficult</p>
+        <h3><%= project.title %></h3>
+        <p class="difficulty"><%= project.difficulty.presence || "Unknown" %></p>
+        <%# will be done later %>
         <span class="progress">40%</span>
+
+        <a class="view-btn" href="<%= project_path(project) %>">View</a>
       </div>
+
     </div>
-
-    <div class="project-card">
-      <img src="example.jpg">
-      <div class="card-body">
-        <h3>Cosy Socks</h3>
-        <p class="difficulty">Easy</p>
-        <span class="progress">20%</span>
-      </div>
-    </div>
-
-
-    <div class="project-card">
-      <img src="example.jpg">
-      <div class="card-body">
-        <h3>Sweater</h3>
-        <p class="difficulty">Difficult</p>
-        <span class="progress">40%</span>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <img src="example.jpg">
-      <div class="card-body">
-        <h3>Cosy Beannie</h3>
-        <p class="difficulty">Easy</p>
-        <span class="progress">20%</span>
-      </div>
-    </div>
- </div>
-
+  <% end %>
+</div>

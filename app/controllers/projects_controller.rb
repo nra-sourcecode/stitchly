@@ -9,10 +9,13 @@ class ProjectsController < ApplicationController
     @text = "Home"
   end
 
+  
   def index
-    @text = "My Projects"
+    @projects = current_user.projects
+    @text = "My Ongoing Projects"
     @navbar = true
   end
+
 
   def show
     @project = Project.find(params[:id])
