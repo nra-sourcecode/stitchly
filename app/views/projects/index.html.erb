@@ -4,6 +4,7 @@
   <% @projects.each do |project| %>
     <div class="project-card">
 
+<%# question for the team, should be the first picture displayed here? %>
       <% if project.images.attached? %>
         <img src="<%= url_for(project.images.first) %>" alt="<%= project.title %> image">
       <% else %>
@@ -11,9 +12,14 @@
       <% end %>
 
       <div class="card-body">
-        <h3><%= project.title %></h3>
-        <p class="difficulty"><%= project.difficulty.presence || "Unknown" %></p>
-        <%# will be done later %>
+        <h3><%= project.title.capitalize %></h3>
+        <p class="difficulty">
+        <%= (project.difficulty.presence || "Unknown").capitalize %>
+        </p>
+        <%# question for the team - should the difficulty, title etc mandatory for the users to fill in? %>
+
+        <%# will be done later - discuss with the team %>
+
         <span class="progress">40%</span>
 
         <a class="view-btn" href="<%= project_path(project) %>">View</a>
