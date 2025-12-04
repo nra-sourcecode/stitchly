@@ -1,7 +1,6 @@
 class ProjectsController < ApplicationController
   require "json"
 
-  def index
   def home
     @ongoing_projects = current_user.projects.where(status: "ongoing")
     @finished_projects = current_user.projects.where(status: "finished")
@@ -60,7 +59,6 @@ class ProjectsController < ApplicationController
       newtask.project = @project
       newtask.save
     end
-    raise
   end
 
   private
