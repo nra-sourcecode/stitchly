@@ -18,7 +18,7 @@ class MessagesController < ApplicationController
 
       @ruby_llm_chat = RubyLLM.chat.with_temperature(0.7)
       build_conversation_history
-      response = @ruby_llm_chat.with_instructions(SYSTEM_PROMPT).ask(@message.content) do |chunk|
+      response = @ruby_llm_chat.with_instructions(SYSTEM_PROMPT).ask(@message.content, with: {image: url_for(@project.pattern) }) do |chunk|
         next if chunk.content.blank? # skip empty chunks
 
         @assistant_message.content += chunk.content
@@ -72,8 +72,12 @@ class MessagesController < ApplicationController
     params.require(:message).permit(:content)
   end
 
+  # def pdf_pattern
+  #   url_for(@project.pattern) if @project.pattern.attached?
+  # end
+
   # def instruction_context
-  #   [SYSTEM_PROMPT, @chat.content].compact.join("\n\n")
+  #   [SYSTEM_PROMPT, pdf_pattern].compact.join("\n\n")
   # end
 
   def broadcast_replace(message)

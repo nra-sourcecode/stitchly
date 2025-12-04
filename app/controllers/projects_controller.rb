@@ -1,4 +1,7 @@
 class ProjectsController < ApplicationController
+  require "json"
+
+  def index
   def home
     @ongoing_projects = current_user.projects.where(status: "ongoing")
     @finished_projects = current_user.projects.where(status: "finished")
@@ -32,7 +35,9 @@ class ProjectsController < ApplicationController
       @amount = params[:project][:project_yarn][:amount]
       @amount = @amount.to_i
       ids.each do |yarn_id|
-        ProjectYarn.create!(yarn: Yarn.find(yarn_id.to_i), project: @project, amount: @amount)
+      ProjectYarn.create!(yarn: Yarn.find(yarn_id.to_i), project: @project, amount: @amount)
+      task_response
+
       end
 
 
@@ -44,6 +49,18 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+  end
+
+  def task_response
+    @ruby_llm_chat = RubyLLM.chat(model: "gemini-2.0-flash")
+    @response = @ruby_llm_chat.ask("can you use this file to create steps. The title of the step should always have the key: step_title and de desciption should have the key: step_description. Can you give me back maximum 5 steps in the form of an array, with the title of the step as a string", with: {pdf: @project.pattern.url})
+    @tasks_array = JSON.parse(@response.content[7...-3])
+    @tasks_array.each do |task|
+      newtask = Task.new(comment: task["step_title"])
+      newtask.project = @project
+      newtask.save
+    end
+    raise
   end
 
   private
@@ -58,5 +75,9 @@ class ProjectsController < ApplicationController
 
   def project_yarn_params
       params.require(:project).permit(:amount)
+  end
+
+  def task_params
+      params.require(:task).permit(:comment)
   end
 end
