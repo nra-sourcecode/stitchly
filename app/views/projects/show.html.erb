@@ -1,14 +1,29 @@
 
+
+
 <%# <%= cloudinary_url @project.pattern.key, height: 300, width: 400, crop: :fill %>
 
 <%=  link_to "Pattern", url_for(@project.pattern) if @project.pattern.attached?  %>
 
 <%# <%= cl_image_tag(@project.images.key) if @project.images.attached? %>
-<div class="container p-4 m-3">
-  <% @project.images.each do |img| %>
-  <%= cl_image_tag (img.key) if @project.images.attached? %>
-  <% end %>
-  
+<div class="container p-4 m-3 d-block w-100">
+  <div id="carouselExampleSlidesOnly" class="carousel slide m-4" data-bs-ride="carousel">
+    <div class="carousel-inner">   
+      <% @project.images.each do |img| %>       
+        <div class="carousel-item ">
+          <%= cl_image_tag (img.key) if @project.images.attached? %>
+        </div>
+      <% end %>     
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
   <h2 class="mt-4"><strong><%= @project.title.capitalize %></strong></h2>
   <p><%= @project.difficulty %></p>
   <%# <div>

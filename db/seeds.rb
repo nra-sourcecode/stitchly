@@ -8,7 +8,8 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 require "open-uri"
-file = URI.parse("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg").open
+file = URI.parse("https://static01.nyt.com/images/2020/12/20/multimedia/20ah-knitting/20ah-knitting-superJumbo.jpg?quality=75&auto=webp").open
+photo = URI.parse("https://images.unsplash.com/photo-1584992236310-6edddc08acff?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8a25pdHRpbmd8ZW58MHx8MHx8fDA%3D").open
 
 puts "Cleaning database..."
 Task.destroy_all
@@ -29,6 +30,7 @@ Yarn.destroy_all
  all_users.each do |user|
    myproject = Project.create!(user: user, title: "my project", designer: "everithing", category: "sweather", needle_size: 2, product_size: "small", difficulty: "hard" )
    myproject.images.attach(io: file, filename: "nes.png", content_type: "image/png")
+   myproject.images.attach(io: photo, filename: "nes.png", content_type: "image/png")
    myproject.save
    yourproject=Project.create!(user: user, title: "caschmere project", designer: "Idk", category: "socks", needle_size: 4, product_size: "xl", difficulty: "easy")
   yourproject.images.attach(io: file, filename: "nes.png", content_type: "image/png")
