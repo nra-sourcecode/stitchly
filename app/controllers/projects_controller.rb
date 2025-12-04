@@ -18,6 +18,8 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
+    @text = "Adding My Project"
+    @navbar = true
   end
 
   def create
@@ -58,4 +60,3 @@ class ProjectsController < ApplicationController
       params.require(:project).permit(:amount)
   end
 end
-  # Home page showing two swimlanes
