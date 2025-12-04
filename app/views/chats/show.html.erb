@@ -1,5 +1,5 @@
 <h1> hello </h1>
-<%# I am making a main wrapper of my page here by making a custom class for styling it in css
+<%# I am making a main wrapper of my page here by making a custom class for styling it in css %>
 
 <div class="container home-page-container">
   <%= turbo_stream_from @chat %>
@@ -14,4 +14,6 @@
   <div id="message-form" class="new-message-form sticky-bottom">
     <%= render "messages/form", chat: @chat, message: @message %>
   </div>
-</div> %>
+</div>
+
+<%= link_to "Log Out", destroy_user_session_path, data: {turbo_method: :delete} %>
