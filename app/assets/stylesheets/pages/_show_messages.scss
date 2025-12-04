@@ -29,6 +29,8 @@ $bot-text-color: #2e2c2c; // Bot text color
       padding: 10px 15px;
       border-radius: 20px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      width: 90%; /* Adjust this value to make it wider */
+      max-width: 800px; /* Set a maximum width if needed */
 
       &.assistant {
         font-size: 12px;
@@ -48,7 +50,7 @@ $bot-text-color: #2e2c2c; // Bot text color
         }
 
         .message-content {
-          margin-bottom: 5px;
+          margin-bottom: 0px;
         }
 
         .message-time {
@@ -65,60 +67,99 @@ $bot-text-color: #2e2c2c; // Bot text color
         align-self: flex-end; // Align user messages to the right
 
         .message-role {
+          align-self: flex-end;
           font-size: 12px;
           color: $text-color;
           margin-bottom: 2px;
 
           strong {
             display: block;
-            margin-bottom: 2px;
+            margin-bottom: 0px;
           }
         }
 
         .message-content {
-          margin-bottom: 2px;
+          margin-bottom: 0px;
         }
 
         .message-time {
           font-size: 10px;
           color: $text-color;
           text-align: right; // Align time to the right
+          margin-top: -15px;
         }
       }
     }
   }
 
-  // New message form styles
   .new-message-form.sticky-bottom {
     background-color: rgb(255, 255, 255);
-    padding: 10px;
-    border-top: 1px solid $border-color;
-    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+    padding: 0px;
     position: sticky;
     bottom: 0;
     width: 100%;
     display: flex;
+    border: 0.5px solid #ccc;
     align-items: center;
+    border-radius: 30px; /* Optional: Round the corners of the border */
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3); /* Stronger shadow on the bottom and right */
+
+    .icon-container {
+        display: flex;
+        align-items: center;
+        margin-right: 28px;  /* Center align the icon vertically */
+    }
 
     input[type="text"] {
-      flex: 1;
-      padding: 10px;
-      border: 1px solid $border-color;
-      border-radius: 35px;
-      outline: none;
-      margin-right: 15px;
+        flex: 1; /* Inputs expand to take available width */
+        padding: 10px; /* Adjust padding for better spacing */
+        border-radius: 60px;
+        outline: none;
+        margin-right: 15px; /* Space between the input and the icon */
     }
 
-    .send-button {
-      background-color:#A7727D;;
-      border: none;
-      border-radius: 50%;
-      width: 30px;
-      height: 30px;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+    .send-icon {
+        background-color: none;
+        color: #EDDBC7;
+        border: none;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 5px;
+
+        &:hover {
+            color: #A7727D;
+        }
+    }
+
+    .no-btn-behaviour {
+        background-color: white;
+        border: none;
     }
   }
+}
+
+.chat-form {
+  outline: none !important;
+  border: 0;
+  appearance: none !important;
+  box-shadow: none !important;
+  margin-top: auto;
+  padding-top: 16px !important;
+  padding-bottom: -10px !important;
+  box-sizing: border-box;
+}
+
+::placeholder {
+  line-height: 1.5;
+}
+
+.chat-form input:focus  {
+  outline: none !important;
+  border: 0 !important;
+  appearance: none !important;
+  box-shadow: none !important;
 }
