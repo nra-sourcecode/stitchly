@@ -1,0 +1,11 @@
+<%#= turbo_stream.append "messages" do %>
+  <%#= render "messages/messages", messages: @chat.messages.order(:created_at).last(2) %>
+<%# end %>
+
+<%= turbo_stream.update "message-form" do %>
+  <%= render "messages/form", chat: @chat, message: Message.new %>
+<% end %>
+
+<%#= turbo_stream.replace "loader" do %>
+  <%#= render "messages/loading" %>
+<%# end %>

@@ -7,6 +7,9 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+require "open-uri"
+file = URI.parse("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg").open
+
 puts "Cleaning database..."
 Task.destroy_all
 Message.destroy_all
@@ -24,8 +27,12 @@ Yarn.destroy_all
 
  all_users = User.all
  all_users.each do |user|
-   Project.create!(user: user, title: "my project", designer: "everithing", category: "sweather", needle_size: 2, product_size: "small", difficulty: "hard" )
-   Project.create!(user: user, title: "caschmere project", designer: "Idk", category: "socks", needle_size: 4, product_size: "xl", difficulty: "easy")
+   myproject = Project.create!(user: user, title: "my project", designer: "everithing", category: "sweather", needle_size: 2, product_size: "small", difficulty: "hard" )
+   myproject.images.attach(io: file, filename: "nes.png", content_type: "image/png")
+   myproject.save
+   yourproject=Project.create!(user: user, title: "caschmere project", designer: "Idk", category: "socks", needle_size: 4, product_size: "xl", difficulty: "easy")
+  yourproject.images.attach(io: file, filename: "nes.png", content_type: "image/png")
+  yourproject.save
  end
 
  all_projects = Project.all
