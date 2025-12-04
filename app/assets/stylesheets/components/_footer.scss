@@ -3,23 +3,20 @@
     bottom: 0;
     width: 100%;
     height: 70px;
-    
+
     display: block;
     position: fixed;
     background-color: white;
     i {
         font-size: x-large;
-        color: $darker-beige;  
-        &:hover { 
+        color: $darker-beige;
+        &:hover {
             color:$pink ;
             font-size: xx-large;
-        }  
+        }
     }
     p {
-            color: grey; 
-            font-size: smaller;      
+            color: grey;
+            font-size: smaller;
     }
 }
-
-    
-
