@@ -1,43 +1,59 @@
+<h2 class="project-status">
+  Ongoing Projects
+  <span><%= link_to "See all", projects_path, class: "see-all" %></span>
+</h2>
 
-<h2 class="project-status">Ongoing Projects <span><%= link_to "See all", projects_path, class: "see-all" %></span></h2>  <div class="projects-grid">
+<div class="projects-grid">
+  <% @projects.each do |project| %>
     <div class="project-card">
-      <img src="example.jpg">
+
+      <% if project.images.attached? %>
+        <%= image_tag project.images.last, alt: "#{project.title} image" %>
+      <% else %>
+        <%= image_tag "sweater.webp", alt: "Placeholder" %>
+      <% end %>
+
       <div class="card-body">
-        <h3>Jumper</h3>
-        <p class="difficulty">Difficult</p>
+        <h3><%= project.title.capitalize %></h3>
+        <p class="difficulty">
+        <%= (project.difficulty.presence || "Unknown").capitalize %>
+        </p>
+
+
         <span class="progress">40%</span>
-      </div>
-    </div>
 
-    <div class="project-card">
-      <img src="example.jpg">
-      <div class="card-body">
-        <h3>Cosy Socks</h3>
-        <p class="difficulty">Easy</p>
-        <span class="progress">20%</span>
+        <%= link_to "View", project_path(project), class: "view-btn" %>
       </div>
+
+    </div>
+  <% end %>
+</div>
+
+
+
+<h2 class="project-status">
+  Finished Projects
+  <span class="see-all">See all</span>
+</h2>
+
+<div class="projects-grid">
+
+  <div class="project-card">
+    <img src="example.jpg">
+    <div class="card-body">
+      <h3>Sweater</h3>
+      <p class="difficulty">Difficult</p>
+      <span class="progress">40%</span>
     </div>
   </div>
 
-
-  <h2 class="project-status">Finished Projects <span class="see-all">See all</span></h2>
-  <div class="projects-grid">
-    <div class="project-card">
-      <img src="example.jpg">
-      <div class="card-body">
-        <h3>Sweater</h3>
-        <p class="difficulty">Difficult</p>
-        <span class="progress">40%</span>
-      </div>
+  <div class="project-card">
+    <img src="example.jpg">
+    <div class="card-body">
+      <h3>Cosy Beannie</h3>
+      <p class="difficulty">Easy</p>
+      <span class="progress">20%</span>
     </div>
-
-    <div class="project-card">
-      <img src="example.jpg">
-      <div class="card-body">
-        <h3>Cosy Beannie</h3>
-        <p class="difficulty">Easy</p>
-        <span class="progress">20%</span>
-      </div>
-    </div>
-
   </div>
+
+</div>
