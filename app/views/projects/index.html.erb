@@ -10,24 +10,10 @@
         <img src="<%= asset_path("sweater.webp") %>" alt="Placeholder">
       <% end %>
 
-       <div class="d-flex justify-content-evenly">
-
-<%# view button %>
+      <%# view button %>
   <%= link_to project_path(project) do %>
     <i class="fa-regular fa-eye"></i>
   <% end %>
-<%# delete button %>
-  <%= link_to project_path(project),
-      data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
-    <i class="fa-solid fa-trash-can"></i>
-  <% end %>
-
-<%# edit button %>
-  <%= link_to edit_project_path(project) do %>
-    <i class="fa-regular fa-pen-to-square"></i>
-  <% end %>
-
-</div>
 
       <div class="card-body">
         <h3><%= project.title.capitalize %></h3>
