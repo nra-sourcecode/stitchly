@@ -65,7 +65,20 @@
       <%= @yarns.map { |yarn| yarn.material }.join(", ") %>
     </p>
   </div>
+
+<div class="d-flex">
+  <p><span class="label">Pattern:</span></p>
+
+  <% if @project.pattern.attached? %>
+    <%= link_to url_for(@project.pattern), class: "pattern-icon ms-2" do %>
+      <i class="fa-regular fa-file-pdf fa-lg"></i>
+    <% end %>
+  <% end %>
 </div>
+</div>
+
+
+
 
 
 
@@ -74,13 +87,9 @@
     </div>
 
 
-<%# Why there are 2 pattern links here? %>
 
-<%=  link_to "pattern", url_for(@project.pattern) if @project.pattern.attached? %>
 
 
 <%# <%= cloudinary_url @project.pattern.key, height: 300, width: 400, crop: :fill %>
-
-<%=  link_to "Pattern", url_for(@project.pattern) if @project.pattern.attached?  %>
 
 <%# <%= cl_image_tag(@project.images.key) if @project.images.attached? %>

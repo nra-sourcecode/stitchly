@@ -21,7 +21,7 @@ img {
 
 .project-title {
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 550;
 }
 
 .project-difficulty {
@@ -37,20 +37,25 @@ img {
 
 .project-description p {
   font-size: 12px;
-  margin-bottom: 2px;
+  margin-bottom: 1px;
 }
 
 // Label (Designer, Category etc)
 .project-description .label {
-  font-weight: 600;
+  font-weight: 550;
   color: rgb(78, 78, 78);
 }
 
-// Global text styles
+
 p {
   color: gray;
 }
 
 p strong {
   color: rgb(78, 78, 78);
+}
+
+.pattern-icon i {
+  color: rgb(78, 78, 78);
+  font-size: 20px;
 }

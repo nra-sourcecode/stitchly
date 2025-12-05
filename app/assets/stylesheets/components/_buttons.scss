@@ -2,7 +2,7 @@
   display: inline-block;
   padding: 8px 16px; // (top/bottom 8px, left/right 16px)
   background-color: #A7727D;
-  border-radius: 6px; // round corners
+  border-radius: 16px; // round corners
   color: white; //  text
   text-decoration: none; // no underline
   width: auto;
@@ -40,7 +40,7 @@
   background: #A7727D;
   color: #F8EAD8;
   font-size: 24px;
-  cursor: pointer;       
+  cursor: pointer;
 }
 
 .login-btn {
