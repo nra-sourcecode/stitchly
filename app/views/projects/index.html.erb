@@ -4,27 +4,41 @@
   <% @projects.each do |project| %>
     <div class="project-card">
 
-<%# question for the team, should be the first picture displayed here? %>
       <% if project.images.attached? %>
-        <img src="<%= url_for(project.images.first) %>" alt="<%= project.title %> image">
+        <img src="<%= url_for(project.images.last) %>" alt="<%= project.title %> image">
       <% else %>
         <img src="<%= asset_path("sweater.webp") %>" alt="Placeholder">
       <% end %>
+
+       <div class="d-flex justify-content-evenly">
+
+
+  <%= link_to project_path(project) do %>
+    <i class="fa-regular fa-eye"></i>
+  <% end %>
+
+
+  <%= link_to project_path(project),
+      data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+    <i class="fa-solid fa-trash-can"></i>
+  <% end %>
+
+ 
+  <%= link_to edit_project_path(project) do %>
+    <i class="fa-regular fa-pen-to-square"></i>
+  <% end %>
+
+</div>
 
       <div class="card-body">
         <h3><%= project.title.capitalize %></h3>
         <p class="difficulty">
         <%= (project.difficulty.presence || "Unknown").capitalize %>
         </p>
-        <%# question for the team - should the difficulty, title etc mandatory for the users to fill in? %>
-
-        <%# will be done later - discuss with the team %>
 
         <span class="progress">40%</span>
 
-        <a class="view-btn" href="<%= project_path(project) %>">View</a>
       </div>
-
     </div>
   <% end %>
 </div>

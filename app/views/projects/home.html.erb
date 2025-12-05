@@ -7,9 +7,8 @@
   <% @projects.each do |project| %>
     <div class="project-card">
 
-      <%# question for the team: should the first uploaded picture be displayed? %>
       <% if project.images.attached? %>
-        <%= image_tag project.images.first, alt: "#{project.title} image" %>
+        <%= image_tag project.images.last, alt: "#{project.title} image" %>
       <% else %>
         <%= image_tag "sweater.webp", alt: "Placeholder" %>
       <% end %>
@@ -20,7 +19,6 @@
         <%= (project.difficulty.presence || "Unknown").capitalize %>
         </p>
 
-        <%# should difficulty and title be mandatory? %>
 
         <span class="progress">40%</span>
 
@@ -31,7 +29,7 @@
   <% end %>
 </div>
 
-<%# question for the team - should users be able to edit/delete? %>
+
 
 <h2 class="project-status">
   Finished Projects

@@ -66,6 +66,32 @@ class ProjectsController < ApplicationController
     end
   end
 
+def edit
+  @project = Project.find(params[:id])
+  @text = "Edit My Project"
+  @navbar = true
+end
+
+def update
+  @project = Project.find(params[:id])
+
+  if @project.update(project_params)
+    redirect_to edit_project_path(@project)
+  else
+    render :edit, status: :unprocessable_entity
+  end
+end
+
+def destroy
+  @project = Project.find(params[:id])
+  @project.yarns.destroy_all
+  @project.tasks.destroy_all
+  @project.destroy
+  redirect_to projects_path, status: :see_other
+end
+
+
+
   private
 
   def project_params
