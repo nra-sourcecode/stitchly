@@ -6,7 +6,8 @@ class ProjectsController < ApplicationController
     # @finished_projects = current_user.projects.where(status: "finished").limit(2)
     # will be updated later when the status is ready
     @projects = current_user.projects.limit(2)
-    @footer = true
+    
+    
     @navbar = true
     @text = "Home"
   end

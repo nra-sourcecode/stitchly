@@ -1,5 +1,5 @@
 <div class="d-flex justify-content-around align-items-center footer border-top">
-    <div class= "box d-flex flex-column align-items-center ">
+    <div class= "box d-flex flex-column align-items-center <%= "footer-active" if current_page?(controller: "projects", action: "home")%> ">
         <%= link_to root_path do%>
         <i class="fa-solid fa-house-user"></i>
         <% end %>
