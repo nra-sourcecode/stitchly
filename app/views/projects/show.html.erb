@@ -1,5 +1,8 @@
 <%# Main container %>
-<div class="container">
+<%# a bootstrap container with default padding %>
+<div class="container project-container">
+
+  <%# lets Bootstrap JS target this carousel, applies styling + animation, makes it auto-slide.%>
   <div id="carouselExampleSlidesOnly" class="carousel slide " data-bs-ride="carousel">
     <div class="carousel-inner">
       <% @project.images.each_with_index do |img, i| %>
@@ -8,6 +11,8 @@
         </div>
       <% end %>
     </div>
+
+    <%# Carousel navigation buttons %>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
@@ -18,9 +23,9 @@
     </button>
   </div>
 
-
-<div class="d-flex justify-content-between align-items-center mt-4">
-  <h2 class="m-0"><strong><%= @project.title.capitalize %></strong></h2>
+<%# Bootstrap flex container - title %>
+<div class="d-flex justify-content-between align-items-center mt-3">
+  <h2 class="project-title"><%= @project.title.capitalize %></strong></h2>
 
   <div class="d-flex gap-3">
     <%# delete button %>
@@ -36,9 +41,7 @@
   </div>
 </div>
 
-<p><%= @project.difficulty %></p>
-
-
+<p class="project-difficulty"><%= @project.difficulty %></p>
 
 
   <%# <div>
@@ -48,17 +51,25 @@
     </div>
   </div> %>
 
-  <h3 class="mt-4">Project Description</h3>
-  <p><strong>Designer:</strong> <%= @project.designer %></p>
-  <p><strong>Category:</strong> <%= @project.category %></p>
-  <p><strong>Needle:</strong> <%= @project.needle_size %></p>
-  <% @yarns= @project.yarns %>
-  <div class="d-flex">
-    <p><strong>Composition of Yarn:</strong>
-    <%= @yarns.map{ |yarn| yarn.material }.join(", ") %>
-  </div>
+<div class="project-description">
+  <h3 class="description">Project Description</h3>
 
-  <div class="d-flex justify-content-around floating">
+  <p><span class="label">Designer:</span> <%= @project.designer %></p>
+  <p><span class="label">Category:</span> <%= @project.category %></p>
+  <p><span class="label">Needle:</span> <%= @project.needle_size %></p>
+
+  <% @yarns = @project.yarns %>
+  <div class="d-flex">
+    <p>
+      <span class="label">Composition of Yarn:</span>
+      <%= @yarns.map { |yarn| yarn.material }.join(", ") %>
+    </p>
+  </div>
+</div>
+
+
+
+  <div class="d-flex justify-content-around floating mt-3">
     <div class="button">Start Project</div>
     </div>
 
