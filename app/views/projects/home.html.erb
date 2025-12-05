@@ -5,7 +5,8 @@
 
 <div class="projects-grid">
   <% @projects.each do |project| %>
-    <div class="project-card">
+    <%= link_to project_path(project), class: "project-card-link" do %>
+      <div class="project-card">
 
       <% if project.images.attached? %>
         <%= image_tag project.images.last, alt: "#{project.title} image" %>
@@ -21,11 +22,10 @@
 
 
         <span class="progress">40%</span>
+        </div>
 
-        <%= link_to "View", project_path(project), class: "view-btn" %>
       </div>
-
-    </div>
+    <% end %>
   <% end %>
 </div>
 
