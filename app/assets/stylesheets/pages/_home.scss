@@ -68,3 +68,13 @@
   color: $black;
   padding: 0;
 }
+
+.project-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.project-card {
+  cursor: pointer;
+}

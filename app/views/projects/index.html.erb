@@ -2,28 +2,25 @@
 
 <div class="projects-grid">
   <% @projects.each do |project| %>
-    <div class="project-card">
+    <%= link_to project_path(project), class: "project-card-link" do %>
+      <div class="project-card">
 
-      <% if project.images.attached? %>
-        <img src="<%= url_for(project.images.last) %>" alt="<%= project.title %> image">
-      <% else %>
-        <img src="<%= asset_path("sweater.webp") %>" alt="Placeholder">
-      <% end %>
+        <% if project.images.attached? %>
+          <img src="<%= url_for(project.images.last) %>" alt="<%= project.title %> image">
+        <% else %>
+          <img src="<%= asset_path("sweater.webp") %>" alt="Placeholder">
+        <% end %>
 
-      <%# view button %>
-  <%= link_to project_path(project) do %>
-    <i class="fa-regular fa-eye"></i>
-  <% end %>
+        <div class="card-body">
+          <h3><%= project.title.capitalize %></h3>
+          <p class="difficulty">
+            <%= (project.difficulty.presence || "Unknown").capitalize %>
+          </p>
 
-      <div class="card-body">
-        <h3><%= project.title.capitalize %></h3>
-        <p class="difficulty">
-        <%= (project.difficulty.presence || "Unknown").capitalize %>
-        </p>
-
-        <span class="progress">40%</span>
+          <span class="progress">40%</span>
+        </div>
 
       </div>
-    </div>
+    <% end %>
   <% end %>
 </div>
