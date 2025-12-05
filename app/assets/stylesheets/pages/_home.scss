@@ -42,13 +42,14 @@
 
 .project-card img {
   width: 100%;
-  height: 170px;
+  height: 60%;
   object-fit: cover;
 }
 
 .card-body {
   padding: 14px 16px 20px;
   position: relative;
+  height: 12%
 }
 
 .card-body h3 {
@@ -60,15 +61,18 @@
 
 .difficulty {
   font-size: 14px;
-  margin: 6px 0 10px;
+  height: 5%;
+  padding: 14px 16px 20px;
+  position: relative;
 }
 
 .progress {
-  position: absolute;
-  right: 16px;
-  bottom: 16px;
   color: $black;
   padding: 0;
+  height: 10%;
+  width: 100%;
+  background-color: white !important;
+
 }
 
 

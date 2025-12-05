@@ -11,14 +11,18 @@
           <img src="<%= asset_path("sweater.webp") %>" alt="Placeholder">
         <% end %>
 
-        <div class="card-body">
-          <h3><%= project.title.capitalize %></h3>
-          <p class="difficulty">
-            <%= (project.difficulty.presence || "Unknown").capitalize %>
-          </p>
-
-          <span class="progress">40%</span>
-        </div>
+          <%# Project title %>
+          <div class="card-body">
+            <h3><%= project.title.capitalize %></h3>
+          </div>
+          <%# Difficulty %>
+          <div class="difficulty">
+          <p><%= (project.difficulty.presence || "Unknown").capitalize %></p>
+          </div>
+          <%# Progress %>
+          <div class="progress d-flex flex-row-reverse">
+            <span>40%</span>
+          </div>
 
       </div>
     <% end %>
