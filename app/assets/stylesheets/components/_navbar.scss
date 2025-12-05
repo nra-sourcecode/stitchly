@@ -16,3 +16,26 @@
 .topnav i {
   cursor: pointer;
 }
+.dropdown-menu {
+
+  border-radius: 8px;
+
+  padding: 0.5rem 0;
+  background-color: $darker-beige;
+}
+.dropdown-menu:hover {
+
+  background-color: $pink;
+}
+.dropdown-item {
+
+  padding: 0.6rem 1rem;
+}
+
+.dropdown-item:hover {
+
+  background-color: $pink;
+  color: $white;
+}
+
+
