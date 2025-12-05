@@ -5,7 +5,8 @@
 
 <div class="projects-grid">
   <% @projects.each do |project| %>
-    <div class="project-card">
+    <%= link_to project_path(project), class: "project-card-link" do %>
+      <div class="project-card">
 
       <% if project.images.attached? %>
         <%= image_tag project.images.last, alt: "#{project.title} image" %>
@@ -13,23 +14,23 @@
         <%= image_tag "sweater.webp", alt: "Placeholder" %>
       <% end %>
 
-      <div class="card-body">
-        <h3><%= project.title.capitalize %></h3>
-        <p class="difficulty">
-        <%= (project.difficulty.presence || "Unknown").capitalize %>
-        </p>
+          <%# Project title %>
+          <div class="card-body">
+            <h3><%= project.title.capitalize %></h3>
+          </div>
+          <%# Difficulty %>
+          <div class="difficulty">
+          <p><%= (project.difficulty.presence || "Unknown").capitalize %></p>
+          </div>
+          <%# Progress %>
+          <div class="progress d-flex flex-row-reverse">
+            <span>40%</span>
+          </div>
 
-
-        <span class="progress">40%</span>
-
-        <%= link_to "View", project_path(project), class: "view-btn" %>
       </div>
-
-    </div>
+    <% end %>
   <% end %>
 </div>
-
-
 
 <h2 class="project-status">
   Finished Projects

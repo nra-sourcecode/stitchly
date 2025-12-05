@@ -2,42 +2,29 @@
 
 <div class="projects-grid">
   <% @projects.each do |project| %>
-    <div class="project-card">
+    <%= link_to project_path(project), class: "project-card-link" do %>
+      <div class="project-card">
 
-      <% if project.images.attached? %>
-        <img src="<%= url_for(project.images.last) %>" alt="<%= project.title %> image">
-      <% else %>
-        <img src="<%= asset_path("sweater.webp") %>" alt="Placeholder">
-      <% end %>
+        <% if project.images.attached? %>
+          <img src="<%= url_for(project.images.last) %>" alt="<%= project.title %> image">
+        <% else %>
+          <img src="<%= asset_path("sweater.webp") %>" alt="Placeholder">
+        <% end %>
 
-       <div class="d-flex justify-content-evenly">
-
-<%# view button %>
-  <%= link_to project_path(project) do %>
-    <i class="fa-regular fa-eye"></i>
-  <% end %>
-<%# delete button %>
-  <%= link_to project_path(project),
-      data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
-    <i class="fa-solid fa-trash-can"></i>
-  <% end %>
-
-<%# edit button %>
-  <%= link_to edit_project_path(project) do %>
-    <i class="fa-regular fa-pen-to-square"></i>
-  <% end %>
-
-</div>
-
-      <div class="card-body">
-        <h3><%= project.title.capitalize %></h3>
-        <p class="difficulty">
-        <%= (project.difficulty.presence || "Unknown").capitalize %>
-        </p>
-
-        <span class="progress">40%</span>
+          <%# Project title %>
+          <div class="card-body">
+            <h3><%= project.title.capitalize %></h3>
+          </div>
+          <%# Difficulty %>
+          <div class="difficulty">
+          <p><%= (project.difficulty.presence || "Unknown").capitalize %></p>
+          </div>
+          <%# Progress %>
+          <div class="progress d-flex flex-row-reverse">
+            <span>40%</span>
+          </div>
 
       </div>
-    </div>
+    <% end %>
   <% end %>
 </div>
