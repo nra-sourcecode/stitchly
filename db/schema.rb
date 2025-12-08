@@ -72,13 +72,13 @@ ActiveRecord::Schema[7.1].define(version: 2025_12_08_105435) do
     t.string "title"
     t.string "designer"
     t.string "category"
-    t.integer "needle_size"
     t.string "product_size"
     t.bigint "user_id", null: false
     t.string "difficulty"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "status"
+    t.float "needle_size"
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
