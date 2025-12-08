@@ -23,7 +23,7 @@ User.destroy_all
 Yarn.destroy_all
 
 
- User.create!(email: "test@test.com", password: "123456")
+ User.create!(email: "test@test.com", password: "123456", )
  User.create!(email: "test1@test.com", password: "123456")
 
  all_users = User.all
