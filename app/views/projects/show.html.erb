@@ -106,12 +106,16 @@
 
 
 
-
 <div class="d-flex justify-content-around floating mt-3">
-  <%= link_to project_start_path(@project.id), class: "button", data: { turbo_method: :patch }  do %>
-    Start Project
+  <% if @project.status == "not started" %>
+    <%= link_to project_start_path(@project.id), class: "button", data: { turbo_method: :patch } do %>
+      Start Project
+    <% end %>
   <% end %>
 </div>
+
+
+
 
 
 <%# <%= cloudinary_url @project.pattern.key, height: 300, width: 400, crop: :fill %>
