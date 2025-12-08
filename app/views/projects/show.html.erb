@@ -22,6 +22,15 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
+  <h2 class="mt-4"><strong><%= @project.title.capitalize %></strong></h2>
+
+<div class= "d-flex gap-2" style="width: 100vw;">
+<%@project.tasks.sort_by { |t| t.id }.each do |task|%>
+<%= render "components/progress_bar", task: task %>
+<%end%>
+</div>
+
+  <p><%= @project.difficulty %></p>
 
 <%# Bootstrap flex container - title %>
 <div class="d-flex justify-content-between align-items-center mt-3">

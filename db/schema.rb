@@ -87,6 +87,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_12_05_161117) do
     t.bigint "project_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "state", default: false
     t.index ["project_id"], name: "index_tasks_on_project_id"
   end
 

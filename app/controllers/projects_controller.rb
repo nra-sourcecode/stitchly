@@ -41,6 +41,7 @@ class ProjectsController < ApplicationController
       @amount = @amount.to_i
       ids.each do |yarn_id|
       ProjectYarn.create!(yarn: Yarn.find(yarn_id.to_i), project: @project, amount: @amount)
+
       task_response
 
       end
@@ -59,6 +60,7 @@ class ProjectsController < ApplicationController
   end
 
   def task_response
+    if @project.pattern.attached?
     @ruby_llm_chat = RubyLLM.chat(model: "gemini-2.0-flash")
     @response = @ruby_llm_chat.ask("can you use this file to create steps. The title of the step should always have the key: step_title and de desciption should have the key: step_description. Can you give me back maximum 5 steps in the form of an array, with the title of the step as a string", with: {pdf: @project.pattern.url})
     @tasks_array = JSON.parse(@response.content[7...-3])
@@ -66,6 +68,7 @@ class ProjectsController < ApplicationController
       newtask = Task.new(comment: task["step_title"])
       newtask.project = @project
       newtask.save
+    end
     end
   end
 
