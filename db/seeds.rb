@@ -23,17 +23,18 @@ User.destroy_all
 Yarn.destroy_all
 
 
- User.create!(email: "test@test.com", password: "123456", )
- User.create!(email: "test1@test.com", password: "123456")
+ User.create!(email: "test@test.com", password: "123456", first_name: "lolo")
+ User.create!(email: "test1@test.com", password: "123456", first_name: "lili")
 
  all_users = User.all
  all_users.each do |user|
-   myproject = Project.create!(user: user, title: "my project", designer: "everithing", category: "sweather", needle_size: 2, product_size: "small", difficulty: "hard" )
+   myproject = Project.create!(user: user, title: "my project", designer: "everything", category: "sweather", needle_size: 2.4, product_size: "small", difficulty: "hard", status: "done" )
    myproject.images.attach(io: file, filename: "nes.png", content_type: "image/png")
    myproject.images.attach(io: photo, filename: "nes.png", content_type: "image/png")
    myproject.save
-   yourproject=Project.create!(user: user, title: "caschmere project", designer: "Idk", category: "socks", needle_size: 4, product_size: "xl", difficulty: "easy")
+   yourproject=Project.create!(user: user, title: "caschmere project", designer: "Idk", category: "socks", needle_size: 4.3, product_size: "xl", difficulty: "easy", status: "ongoing")
   yourproject.images.attach(io: file, filename: "nes.png", content_type: "image/png")
+  yourproject.images.attach(io: photo, filename: "nes.png", content_type: "image/png")
   yourproject.save
  end
 
@@ -62,5 +63,5 @@ end
 all_chats = Chat.all
 all_chats.each do |chat|
   Message.create!(chat: chat, content: "ndsiiefbfehe", role: "user")
-  Message.create!(chat: chat, content: "ndssieni2332e", role: "user")
+  Message.create!(chat: chat, content: "ndssieni2332e", role: "assistant")
 end
