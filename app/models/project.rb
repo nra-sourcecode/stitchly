@@ -13,4 +13,10 @@ class Project < ApplicationRecord
   validates :status, presence: :true
   validates :needle_size, presence: :true
 
+  # def percentage
+  #   done_tasks = self.tasks.where(done: true)
+  #   return 0 if done_tasks.empty?
+  #   percentage = self.tasks / done_tasks * 100
+  # end
+
 end
