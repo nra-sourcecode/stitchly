@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema[7.1].define(version: 2025_12_08_094435) do
+=======
+ActiveRecord::Schema[7.1].define(version: 2025_12_08_105435) do
+>>>>>>> master
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -72,13 +76,13 @@ ActiveRecord::Schema[7.1].define(version: 2025_12_08_094435) do
     t.string "title"
     t.string "designer"
     t.string "category"
-    t.integer "needle_size"
     t.string "product_size"
     t.bigint "user_id", null: false
     t.string "difficulty"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "status", default: "not started"
+    t.float "needle_size"
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
@@ -88,6 +92,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_12_08_094435) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "state", default: false
+    t.string "title"
     t.index ["project_id"], name: "index_tasks_on_project_id"
   end
 
