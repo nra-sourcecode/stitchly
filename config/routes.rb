@@ -12,6 +12,8 @@ Rails.application.routes.draw do
  root "projects#home"
   
   resources :projects
+  get "project/finished" => "projects#finish", as: :projects_finished #link_to project_start_path(id)
+
   resources :tasks, only: [:update]
   patch "project/:id" => "projects#start", as: :project_start #link_to project_start_path(id)
 
