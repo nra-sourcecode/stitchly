@@ -25,11 +25,10 @@ class ProjectsController < ApplicationController
 
 
   def home
-    # @projects = Project.where(status: "ongoing").limit(2)
-    # @finished_projects = current_user.projects.where(status: "finished").limit(2)
+    @projects = Project.where(status: "ongoing").limit(2)
+    @finished_projects = current_user.projects.where(status: "finished").limit(2)
     # will be updated later when the status is ready
     @projects = current_user.projects.limit(2)
-
 
     @navbar = true
     @text = "Home"
@@ -81,6 +80,13 @@ class ProjectsController < ApplicationController
     @text = "My Project"
     @navbar = true
   end
+
+  def start
+    @project = Project.find(params[:id])
+    @project.update(status: "ongoing")
+    redirect_to project_path(@project)
+  end
+
 
   def task_response
     if @project.pattern.attached?

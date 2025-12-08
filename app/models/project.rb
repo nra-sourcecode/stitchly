@@ -19,4 +19,10 @@ class Project < ApplicationRecord
   #   percentage = self.tasks / done_tasks * 100
   # end
 
+  def project_complete?
+    if self.tasks.where(state: true).length == self.tasks.length
+      self.status = "finished"
+      self.save
+    end
+  end
 end
