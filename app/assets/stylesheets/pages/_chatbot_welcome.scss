@@ -1,0 +1,28 @@
+.chatbot-page {
+  display: flex;
+  flex-direction: column; /* Align items in a column */
+  justify-content: center; /* Center items vertically */
+  align-items: center; /* Center items horizontally */
+  min-height: 100vh; /* Ensures the container takes full viewport height */
+  text-align: center; /* Keep text centered */
+  padding: 15px;
+
+
+  h1 {
+    margin-top: 30px;
+    color: #A7727D;
+    font-size: 20px;
+  }
+
+  p {
+    color: #837f7f;
+    font-size: 13px;
+    margin: 10px 0;
+  }
+
+  img {
+  padding-top: 15px;
+  width: 40%; /* Adjusts the width percentage */
+  height: auto; /* Maintains the aspect ratio */
+  }
+}
