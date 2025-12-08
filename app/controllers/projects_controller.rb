@@ -57,6 +57,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @text = "My Project"
     @navbar = true
+    # @project = Project.find(params[:status])
   end
 
   def task_response
