@@ -1,6 +1,6 @@
 <%# I am making a main wrapper of my page here by making a custom class for styling it in css %>
 
-<div class="container chat_container">
+<div class="chat_container">
   <%= turbo_stream_from @chat %>
 
   <%# this is the wrapper where I see the chat %>
@@ -14,5 +14,3 @@
     <%= render "messages/form", chat: @chat, message: @message %>
   </div>
 </div>
-
-<%= link_to "Log Out", destroy_user_session_path, data: {turbo_method: :delete} %>

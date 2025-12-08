@@ -7,10 +7,10 @@ $bot-text-color: #2e2c2c; // Bot text color
 
 
 // Main container styles
-.container.chat_container {
+.chat_container {
   background-color: $bg-color;
   padding: 20px;
-  min-height: 100vh;
+  height: calc(100vh - 120px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -27,7 +27,7 @@ $bot-text-color: #2e2c2c; // Bot text color
       max-width: 70%;
       margin-bottom: 15px;
       padding: 10px 15px;
-      border-radius: 20px;
+      border-radius: 35px 35px 1px 35px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       width: 90%; /* Adjust this value to make it wider */
       max-width: 800px; /* Set a maximum width if needed */
@@ -37,6 +37,7 @@ $bot-text-color: #2e2c2c; // Bot text color
         background-color: $bot-msg-bg;
         color: $bot-text-color;
         align-self: flex-start; // Align assistant messages to the left
+        border-radius: 35px 35px 35px 1px;;
 
         .message-role {
           font-size: 12px;
@@ -122,8 +123,6 @@ $bot-text-color: #2e2c2c; // Bot text color
         background-color: none;
         color: #EDDBC7;
         border: none;
-        width: 30px;
-        height: 30px;
         cursor: pointer;
         display: inline-flex;
         align-items: center;
@@ -143,18 +142,24 @@ $bot-text-color: #2e2c2c; // Bot text color
 }
 
 .chat-form {
-  outline: none !important;
-  border: 0;
-  appearance: none !important;
-  box-shadow: none !important;
-  margin-top: auto;
-  padding-top: 16px !important;
-  padding-bottom: -10px !important;
-  box-sizing: border-box;
+  flex: 1;
+  border: none;
+
+
+
+
+  // outline: none !important;
+  // border: 0;
+  // appearance: none !important;
+  // box-shadow: none !important;
+  // margin-top: auto;
+  // padding-top: 16px !important;
+  // padding-bottom: -10px !important;
+  // box-sizing: border-box;
 }
 
 ::placeholder {
-  line-height: 1.5;
+  // line-height: 1.5;
 }
 
 .chat-form input:focus  {

@@ -1,13 +1,7 @@
-<%= simple_form_for [chat, message], html: { class: "new-message-form sticky-bottom w-100"} do |f| %>
-    <div class="d-flex w-100 justify-content-between align-items-center">
+<%= simple_form_for [chat, message], html: { class: "new-message-form w-100 d-flex px-2 py-2 align-middle"} do |f| %>
       <% prefilled = chat.messages.any? ? "" : chat.content %>
-        <%= f.input_field :content, label: false, placeholder: "Ask Yarni your question...", required: true, class: "chat-form mx-2 my-2 flex-grow-1", input_html: { value: prefilled } %>
-      <div class="icon-container">
+        <%= f.input_field :content, label: false, placeholder: "Ask Yarni your question...", required: true, class: "chat-form", rows: 1 %>
         <%= button_tag type: :submit, class: 'no-btn-behaviour' do %>
           <i class="send-icon fa-solid fa-caret-right" style="font-size: 60px;"></i>
         <% end %>
-      </div>
-    </div>
 <% end %>
-
-    <%# <%= f.button :submit, 'Talk to Yarni', class: 'button' %>

@@ -6,57 +6,55 @@
 </h2>
 
 <div class="projects-grid">
-  <% @projects.each do |project| %>
+  <% @ongoing_projects.each do |project| %>
     <%= link_to project_path(project), class: "project-card-link" do %>
       <div class="project-card">
+        <% if project.images.attached? %>
+          <%= image_tag project.images.last, alt: "#{project.title} image" %>
+        <% else %>
+          <%= image_tag "sweater.webp", alt: "Placeholder" %>
+        <% end %>
 
-      <% if project.images.attached? %>
-        <%= image_tag project.images.last, alt: "#{project.title} image" %>
-      <% else %>
-        <%= image_tag "sweater.webp", alt: "Placeholder" %>
-      <% end %>
-
-          <%# Project title %>
-          <div class="card-body">
-            <h3><%= project.title.capitalize %></h3>
-          </div>
-          <%# Difficulty %>
-          <div class="difficulty">
+        <div class="card-body">
+          <h3><%= project.title.capitalize %></h3>
+        </div>
+        <div class="difficulty">
           <p><%= (project.difficulty.presence || "Unknown").capitalize %></p>
-          </div>
-          <%# Progress %>
-          <div class="progress d-flex flex-row-reverse">
-            <span>40%</span>
-          </div>
-
+        </div>
+        <div class="progress d-flex flex-row-reverse">
+          <span>40%</span>
+        </div>
       </div>
     <% end %>
   <% end %>
 </div>
 
+
 <h2 class="project-status">
   Finished Projects
-  <span class="see-all">See all</span>
+  <span><%= link_to "See all", projects_finished_path, class: "see-all" %></span>
 </h2>
 
 <div class="projects-grid">
+  <% @finished_projects.each do |project| %>
+    <%= link_to project_path(project), class: "project-card-link" do %>
+      <div class="project-card">
+        <% if project.images.attached? %>
+          <%= image_tag project.images.last, alt: "#{project.title} image" %>
+        <% else %>
+          <%= image_tag "sweater.webp", alt: "Placeholder" %>
+        <% end %>
 
-  <div class="project-card">
-    <img src="example.jpg">
-    <div class="card-body">
-      <h3>Sweater</h3>
-      <p class="difficulty">Difficult</p>
-      <span class="progress">40%</span>
-    </div>
-  </div>
-
-  <div class="project-card">
-    <img src="example.jpg">
-    <div class="card-body">
-      <h3>Cosy Beannie</h3>
-      <p class="difficulty">Easy</p>
-      <span class="progress">20%</span>
-    </div>
-  </div>
-
+        <div class="card-body">
+          <h3><%= project.title.capitalize %></h3>
+        </div>
+        <div class="difficulty">
+          <p><%= (project.difficulty.presence || "Unknown").capitalize %></p>
+        </div>
+        <div class="progress d-flex flex-row-reverse">
+          <span>40%</span>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
 </div>

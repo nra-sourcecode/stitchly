@@ -79,4 +79,5 @@ all_chats = Chat.all
 all_chats.each do |chat|
   Message.create!(chat: chat, content: "ndsiiefbfehe", role: "user")
   Message.create!(chat: chat, content: "ndssieni2332e", role: "assistant")
+  Message.create!(chat: chat, content: "ndssieni2332e", role: "user")
 end
