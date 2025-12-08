@@ -39,6 +39,8 @@ class ProjectsController < ApplicationController
     @projects = current_user.projects.where(status: "ongoing").or(current_user.projects.where(status: "not started"))
     @text = "My Ongoing Projects"
     @navbar = true
+    
+
   end
 
   def finish
