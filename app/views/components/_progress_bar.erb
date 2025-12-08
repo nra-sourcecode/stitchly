@@ -1,0 +1,15 @@
+<% width = 100.0 / @project.tasks.length %>
+  <%# <div style="width:  width%; height: 50px; position: relative"> %>
+  <%# <div id="bar" style="width: 100%; border: 1px solid black; height: 20px"></div> %>
+  <%# <div id="checkmark" style="width: 20px; height: 20px; border: 1px solid black; border-radius: 50%; position: absolute; left: 40%; top: 50% " ></div> %>
+  <%# </div>  %>
+
+
+<div style="width: <%= width %>%; height: 50px; position: relative">
+  <div class="d-flex">
+  <%= simple_form_for(task, url: task_path(task), html: { method: :patch } ) do |f|%>
+  <div><%= f.button :submit, "", class: "form_button #{"checked" if task.state}" %></div>
+  <%end%>
+  <div class="progress_bar mt-2 <%= "checked" if task.state%>"></div>
+  </div>
+</div>

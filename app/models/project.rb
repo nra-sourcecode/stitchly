@@ -6,4 +6,10 @@ class Project < ApplicationRecord
   has_one_attached :pattern
   has_many_attached :images
 
+  # def percentage
+  #   done_tasks = self.tasks.where(done: true)
+  #   return 0 if done_tasks.empty?
+  #   percentage = self.tasks / done_tasks * 100
+  # end
+
 end
