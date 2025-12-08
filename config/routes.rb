@@ -8,10 +8,12 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
  resources :projects
 
- get "chatbot", to: "pages#chatbot"
- root "projects#home"
-  
+  get "chatbot", to: "pages#chatbot"
+  root "projects#home"
+
   resources :projects
+  get "project/finished" => "projects#finish", as: :projects_finished #link_to project_start_path(id)
+
   resources :tasks, only: [:update]
   patch "project/:id" => "projects#start", as: :project_start #link_to project_start_path(id)
 
