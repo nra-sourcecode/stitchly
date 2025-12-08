@@ -28,23 +28,39 @@ Yarn.destroy_all
 
  all_users = User.all
  all_users.each do |user|
-   myproject = Project.create!(user: user, title: "my project", designer: "everithing", category: "sweather", needle_size: 2, product_size: "small", difficulty: "hard" )
+   myproject = Project.create!(user: user, title: "my project", designer: "everything", category: "sweather", needle_size: 2.4, product_size: "small", difficulty: "hard", status: "done" )
    myproject.images.attach(io: file, filename: "nes.png", content_type: "image/png")
    myproject.images.attach(io: photo, filename: "nes.png", content_type: "image/png")
    myproject.save
-   yourproject=Project.create!(user: user, title: "caschmere project", designer: "Idk", category: "socks", needle_size: 4, product_size: "xl", difficulty: "easy")
+   yourproject=Project.create!(user: user, title: "caschmere project", designer: "Idk", category: "socks", needle_size: 4.3, product_size: "xl", difficulty: "easy", status: "ongoing")
   yourproject.images.attach(io: file, filename: "nes.png", content_type: "image/png")
+  yourproject.images.attach(io: photo, filename: "nes.png", content_type: "image/png")
   yourproject.save
  end
 
  all_projects = Project.all
  all_projects.each do |project|
-   Task.create!(project: project, comment: "jsdsdiwjidjde")
-   Task.create!(project: project, comment: "snfeneneff")
+   Task.create!(project: project, comment: "jsdsdiwjidjde", title: "back")
+   Task.create!(project: project, comment: "snfeneneff", title: "let s do the shoulders")
  end
 
-Yarn.create!(material: "case")
+Yarn.create!(material: "wool")
 Yarn.create!(material: "cotton")
+Yarn.create!(material: "merino wool")
+Yarn.create!(material: "alpaca")
+Yarn.create!(material: "mohair")
+Yarn.create!(material: "cashmere")
+Yarn.create!(material: "angora")
+Yarn.create!(material: "silk")
+Yarn.create!(material: "linen")
+Yarn.create!(material: "bamboo")
+Yarn.create!(material: "viscose")
+Yarn.create!(material: "acrylic")
+Yarn.create!(material: "polyamide")
+Yarn.create!(material: "polyester")
+Yarn.create!(material: "spandex")
+
+
 
  all_yarns = Yarn.all
  all_projects.each do |project|
@@ -62,5 +78,5 @@ end
 all_chats = Chat.all
 all_chats.each do |chat|
   Message.create!(chat: chat, content: "ndsiiefbfehe", role: "user")
-  Message.create!(chat: chat, content: "ndssieni2332e", role: "user")
+  Message.create!(chat: chat, content: "ndssieni2332e", role: "assistant")
 end
