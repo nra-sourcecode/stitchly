@@ -23,13 +23,8 @@ User.destroy_all
 Yarn.destroy_all
 
 
-<<<<<<< HEAD
- User.create!(email: "test@test.com", password: "123456", first_name: "lolo")
- User.create!(email: "test1@test.com", password: "123456", first_name: "lili")
-=======
  User.create!(email: "test@test.com", password: "123456", first_name: "Adrian")
  User.create!(email: "test1@test.com", password: "123456", first_name: "Adrian1")
->>>>>>> 91b6fa84633767ec52b7a12abafc3eba1c3622e5
 
  all_users = User.all
  all_users.each do |user|
