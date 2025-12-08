@@ -7,6 +7,10 @@ class PagesController < ApplicationController
     @text = "Welcome to Yarni"
   end
 
+  def profile
+    @navbar = true
+  end
+
   def home
   end
 end
