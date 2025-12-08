@@ -1,18 +1,18 @@
 <div class="d-flex justify-content-around align-items-center footer border-top">
     <div class= "box d-flex flex-column align-items-center <%= "footer-active" if current_page?(controller: "projects", action: "home")%> ">
         <%= link_to root_path do%>
-        <i class="fa-solid fa-house-user"></i>
+            <i class="fa-solid fa-house-user"></i>
         <% end %>
         <p class="mb-0">Home</p>
     </div>
-    <div class= "box d-flex flex-column align-items-center ">
-          <%= link_to new_project_path do %>
-        <i class="fa-solid fa-plus p-0"></i>
+    <div class= "box d-flex flex-column align-items-center <%= "footer-active" if current_page?(controller: "projects", action: "new")%>">
+        <%= link_to new_project_path do %>
+            <i class="fa-solid fa-plus p-0"></i>
          <% end %>
         <p class="mb-0">New Project</p>
     </div>
     <div class= "box d-flex flex-column align-items-center ">
-        <i class="fa-solid fa-heart"></i>
+        <i class="fa-solid fa-user"></i>
         <p class="mb-0">Favorite</p>
     </div>
 
