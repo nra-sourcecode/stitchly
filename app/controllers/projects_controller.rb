@@ -37,7 +37,7 @@ class ProjectsController < ApplicationController
 
 
   def index
-    @projects = current_user.projects
+    @projects = current_user.projects.where(status: "ongoing").or(current_user.projects.where(status: "not started"))
     @text = "My Ongoing Projects"
     @navbar = true
   end
