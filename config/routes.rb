@@ -10,6 +10,11 @@ Rails.application.routes.draw do
 
  get "chatbot", to: "pages#chatbot"
  root "projects#home"
+  
+  resources :projects
+  resources :tasks, only: [:update]
+  patch "project/:id" => "projects#start", as: :project_start #link_to project_start_path(id)
+
 
 
   # Defines the root path route ("/")
@@ -18,4 +23,5 @@ Rails.application.routes.draw do
   resources :chats, only: [:show, :create] do
   resources :messages, only: [:new, :create]
   end
+
 end

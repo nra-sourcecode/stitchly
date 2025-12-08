@@ -1,12 +1,34 @@
 class ProjectsController < ApplicationController
   require "json"
 
+  SYSMTEM_PROMPT = "Read the PDF and extract EXACTLY 5 steps.
+    This number may NOT be more or less than 5.
+    Do NOT infer additional steps. Merge or simplify content so you always end up with EXACTLY 5 steps.
+
+    The output must be a JSON array with EXACTLY 5 objects.
+    Each object must have the following two keys only:
+      - step_title: a short title
+      - step_description: a short explanation
+
+    Your output MUST follow this format exactly:
+
+    [
+      { step_title: ..., step_description: ... },
+      { step_title: ..., step_description: ... },
+      { step_title: ..., step_description: ... },
+      { step_title: ..., step_description: ... },
+      { step_title: ..., step_description: ... }
+    ]
+
+    Do not include any text before or after the JSON.
+  PROMPT"
+
+
   def home
-    # @projects = Project.where(status: "ongoing").limit(2)
-    # @finished_projects = current_user.projects.where(status: "finished").limit(2)
+    @projects = Project.where(status: "ongoing").limit(2)
+    @finished_projects = current_user.projects.where(status: "finished").limit(2)
     # will be updated later when the status is ready
     @projects = current_user.projects.limit(2)
-
 
     @navbar = true
     @text = "Home"
@@ -41,9 +63,10 @@ class ProjectsController < ApplicationController
       @amount = @amount.to_i
       ids.each do |yarn_id|
       ProjectYarn.create!(yarn: Yarn.find(yarn_id.to_i), project: @project, amount: @amount)
-      task_response
 
-      end
+
+    end
+    task_response
 
 
       redirect_to project_path(@project)
@@ -58,14 +81,23 @@ class ProjectsController < ApplicationController
     @navbar = true
   end
 
+  def start
+    @project = Project.find(params[:id])
+    @project.update(status: "ongoing")
+    redirect_to project_path(@project)
+  end
+
+
   def task_response
+    if @project.pattern.attached?
     @ruby_llm_chat = RubyLLM.chat(model: "gemini-2.0-flash")
-    @response = @ruby_llm_chat.ask("can you use this file to create steps. The title of the step should always have the key: step_title and de desciption should have the key: step_description. Can you give me back maximum 5 steps in the form of an array, with the title of the step as a string", with: {pdf: @project.pattern.url})
+    @response = @ruby_llm_chat.ask(SYSMTEM_PROMPT, with: {pdf: @project.pattern.url})
     @tasks_array = JSON.parse(@response.content[7...-3])
     @tasks_array.each do |task|
-      newtask = Task.new(comment: task["step_title"])
+      newtask = Task.new(comment: task["step_description"], title: task["step_title"])
       newtask.project = @project
       newtask.save
+    end
     end
   end
 
@@ -110,6 +142,6 @@ end
   end
 
   def task_params
-      params.require(:task).permit(:comment)
+      params.require(:task).permit(:comment, :title)
   end
 end
