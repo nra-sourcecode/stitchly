@@ -15,8 +15,11 @@
         <i class="fa-solid fa-heart"></i>
         <p class="mb-0">Favorite</p>
     </div>
-    <div class= "box d-flex flex-column align-items-center ">
+
+    <div class= "box d-flex flex-column align-items-center <%= "footer-active" if current_page?(controller: "pages", action: "chatbot")%> ">
+    <%= link_to chatbot_path do %>
         <i class="fa-brands fa-github-alt"></i>
+    <% end %>
         <p class="mb-0">Yarni</p>
     </div>
 </div>

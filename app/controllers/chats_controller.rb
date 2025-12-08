@@ -24,6 +24,7 @@ class ChatsController < ApplicationController
         role: "assistant",
         content: "Hello, this is Yarni! I'm ready to help. What can I do for your project today?"
       )
+    redirect_to chat_path(@chat)
   end
 
   def show
@@ -32,7 +33,7 @@ class ChatsController < ApplicationController
     @message = Message.new
     @navbar = true
     @text = "Yarni"
-    # @bottom_bar = true //to update once we have the bottom bar
+    @bottom_bar = true
   end
 
   private
