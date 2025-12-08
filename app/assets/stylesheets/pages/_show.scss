@@ -1,6 +1,5 @@
 @import "components/buttons";
 
-
 // Images
 img {
   width: 100%;
@@ -46,6 +45,9 @@ img {
   color: rgb(78, 78, 78);
 }
 
+.project-description li {
+  font-size: 12px;
+}
 
 p {
   color: gray;
