@@ -25,11 +25,12 @@ class ProjectsController < ApplicationController
 
 
   def home
-    @projects = Project.where(status: "ongoing").limit(2)
-    @finished_projects = current_user.projects.where(status: "finished").limit(2)
-    # will be updated later when the status is ready
-    @projects = current_user.projects.limit(2)
+    @not_started_projects = current_user.projects.where(status: "not started").limit(2)
+    @ongoing_projects     = current_user.projects.where(status: "ongoing").limit(2)
+    @finished_projects    = current_user.projects.where(status: "finished").limit(2)
 
+    # will be updated later when the status is ready
+    # @projects = current_user.projects.limit(2)
     @navbar = true
     @text = "Home"
   end
@@ -41,10 +42,13 @@ class ProjectsController < ApplicationController
     @navbar = true
   end
 
-
-  def show
-    @project = Project.find(params[:id])
+  def finish
+    @finished_projects = current_user.projects.where(status: "finished")
+    @text = "My Finished Projects"
+    @navbar = true
   end
+
+
 
   def new
     @project = Project.new
