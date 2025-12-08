@@ -1,16 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Page</title>
-</head>
 
-<body>
 
-  <div class="topnav">
-    <i class="fa-solid fa-angle-left"></i>
-    <%= @text %>
-    <i class="fa-solid fa-cat"></i>
-  </div>
-
-</body>
-</html>
+  <!-- Top navigation / page header -->
+<div class="topnav">
+  <i class="fa-solid fa-angle-left"></i>
+  <%= @text %>
+  <div class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="fa-solid fa-bars"></i>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+      <%# If using Devise: %>
+      <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %>
+    </ul>
+  </div> <!-- Your hamburger icon here -->
+</div>

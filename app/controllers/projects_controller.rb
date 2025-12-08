@@ -2,17 +2,23 @@ class ProjectsController < ApplicationController
   require "json"
 
   def home
-    @ongoing_projects = current_user.projects.where(status: "ongoing")
-    @finished_projects = current_user.projects.where(status: "finished")
-    @footer = true
+    # @projects = Project.where(status: "ongoing").limit(2)
+    # @finished_projects = current_user.projects.where(status: "finished").limit(2)
+    # will be updated later when the status is ready
+    @projects = current_user.projects.limit(2)
+
+
     @navbar = true
     @text = "Home"
   end
 
+
   def index
-    @text = "My Projects"
+    @projects = current_user.projects
+    @text = "My Ongoing Projects"
     @navbar = true
   end
+
 
   def show
     @project = Project.find(params[:id])
@@ -49,6 +55,8 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    @text = "My Project"
+    @navbar = true
   end
 
   def task_response
@@ -63,6 +71,32 @@ class ProjectsController < ApplicationController
     end
     end
   end
+
+def edit
+  @project = Project.find(params[:id])
+  @text = "Edit My Project"
+  @navbar = true
+end
+
+def update
+  @project = Project.find(params[:id])
+
+  if @project.update(project_params)
+    redirect_to project_path(@project)
+  else
+    render :edit, status: :unprocessable_entity
+  end
+end
+
+def destroy
+  @project = Project.find(params[:id])
+  @project.yarns.destroy_all
+  @project.tasks.destroy_all
+  @project.destroy
+  redirect_to projects_path, status: :see_other
+end
+
+
 
   private
 

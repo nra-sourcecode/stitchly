@@ -16,24 +16,7 @@
 <div><%= f.input :images, as: :file, input_html: { multiple: true } %></div>
 </div>
 <div class="d-flex justify-content-around floating">
-<%= f.button :submit, "Create project", class: "button" %>
+<%= f.button :submit, "Update project", class: "button" %>
 </div>
 <% end %>
 </div>
-
-<%# f.association :company, label_method: :company_name, value_method: :id, include_blank: false %>
-<%# Yarn.all.map { |yarn| yarn.material.upcase } %>
-<%# <%= f.association :particular_users, collection: @all_users, input_html: { class: 'multiselectuser'} %>
-
-<%# <%= f.association :yarns,
-  multiple: true,
-  label_method: :material,
-  value_method: :id,
-  include_blank: false %>
-<%# <%= f.input :yarn_ids,
-  as: :select,
-  multiple: true,
-  collection: Yarn.all,
-  label_method: :material,
-  value_method: :id,
-  include_blank: false %>
