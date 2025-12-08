@@ -1,20 +1,20 @@
 
-<%=  link_to "pattern", url_for(@project.pattern) if @project.pattern.attached? %>
 
+<div class="container">
 
 <%# <%= cloudinary_url @project.pattern.key, height: 300, width: 400, crop: :fill %>
 
-<%=  link_to "Pattern", url_for(@project.pattern) if @project.pattern.attached?  %>
 
 <%# <%= cl_image_tag(@project.images.key) if @project.images.attached? %>
-<div class="container">
+<%=  link_to "Pattern", url_for(@project.pattern) if @project.pattern.attached?  %>
+<%=  link_to "pattern", url_for(@project.pattern) if @project.pattern.attached? %>
   <div id="carouselExampleSlidesOnly" class="carousel slide " data-bs-ride="carousel">
-    <div class="carousel-inner">   
-      <% @project.images.each_with_index do |img, i| %>       
+    <div class="carousel-inner">
+      <% @project.images.each_with_index do |img, i| %>
         <div class="carousel-item <%= 'active' if i == 0 %>">
           <%= cl_image_tag (img.key) if @project.images.attached? %>
         </div>
-      <% end %>     
+      <% end %>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -26,6 +26,13 @@
     </button>
   </div>
   <h2 class="mt-4"><strong><%= @project.title.capitalize %></strong></h2>
+
+<div class= "d-flex gap-2" style="width: 100vw;">
+<%@project.tasks.sort_by { |t| t.id }.each do |task|%>
+<%= render "components/progress_bar", task: task %>
+<%end%>
+</div>
+
   <p><%= @project.difficulty %></p>
   <%# <div>
     <p class="mb-1">10%</p>
@@ -43,5 +50,5 @@
     <%= @yarns.map{ |yarn| yarn.material }.join(", ") %>
   </div>
   <div class="d-flext text-center"><div class="button ">Start Project</div></div>
-  
+
 </div>
