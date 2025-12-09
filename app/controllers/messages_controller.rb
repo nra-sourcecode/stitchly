@@ -15,16 +15,14 @@ class MessagesController < ApplicationController
 
     if @message.save
       @assistant_message = @chat.messages.create(role: "assistant", content: "")
-      @assistant_message.created_at = Time.now
-      @ruby_llm_chat = RubyLLM.chat.with_temperature(0.7)
+      @ruby_llm_chat = RubyLLM.chat(model: "gpt-4").with_temperature(0.7)
       build_conversation_history
       response = @ruby_llm_chat.with_instructions(SYSTEM_PROMPT).ask(@message.content) do |chunk|
         next if chunk.content.blank? # skip empty chunks
 
         @assistant_message.content += chunk.content
 
-        sleep 1.0/24.0
-
+        sleep 1.0 / 24.0
         broadcast_replace(@assistant_message)
       end
       # Message.create(chat: @chat, content: response.content, role: "assistant")
@@ -81,6 +79,6 @@ class MessagesController < ApplicationController
   # end
 
   def broadcast_replace(message)
-    Turbo::StreamsChannel.broadcast_replace_to(@chat, target: "chat-#{helpers.dom_id(message)}", partial: "messages/message", locals: { message: message })
+    Turbo::StreamsChannel.broadcast_replace_to(@chat, target: helpers.dom_id(message), partial: "messages/message", locals: { message: message })
   end
 end
