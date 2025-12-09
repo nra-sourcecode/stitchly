@@ -22,7 +22,7 @@
           <p><%= (project.difficulty.presence || "Unknown").capitalize %></p>
         </div>
         <div class="progress d-flex flex-row-reverse">
-          <span>40%</span>
+          <span><%= project.percentage %>%</span>
         </div>
       </div>
     <% end %>
@@ -53,7 +53,7 @@
           <p><%= (project.difficulty.presence || "Unknown").capitalize %></p>
         </div>
         <div class="progress d-flex flex-row-reverse">
-          <span>40%</span>
+          <span><%= project.percentage %>%</span>
         </div>
       </div>
     <% end %>
