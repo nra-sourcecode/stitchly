@@ -3,7 +3,7 @@ class Message < ApplicationRecord
 
   validates :chat_id, presence: true, numericality: { only_integer: true }
   validates :role, presence: true, inclusion: { in: ["user", "assistant"] }
-  validates :content, presence: true, length: { minimum: 3}
+  validates :content, presence: true
 
   scope :by_user, -> { where(role: "user") }
   scope :by_assistant, -> { where(role: "assistant") }
