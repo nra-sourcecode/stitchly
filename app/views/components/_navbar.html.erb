@@ -1,8 +1,11 @@
-
-
   <!-- Top navigation / page header -->
 <div class="topnav">
-  <i class="fa-solid fa-angle-left"></i>
+  <%= link_to request.referer.present? ? request.referer : root_path do %>
+    <i class="goback fa-regular fa-circle-left"></i>
+  <% end %>
+
+
+
   <%= @text %>
   <div class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -14,3 +17,4 @@
     </ul>
   </div> <!-- Your hamburger icon here -->
 </div>
+
