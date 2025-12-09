@@ -2,8 +2,8 @@
 <%# a bootstrap container with default padding %>
 <div class="container project-container">
 
-<%= render "components/task_modal" %>
-<%= render "components/start_modal" %>
+
+<%= render "components/start_modal"%>
 
 
   <%# lets Bootstrap JS target this carousel, applies styling + animation, makes it auto-slide.%>
@@ -30,6 +30,7 @@
 
 <div class= "d-flex pt-4">
   <%@project.tasks.sort_by { |t| t.id }.each do |task|%>
+  <%= render "components/task_modal", task: task %>
   <%= render "components/progress_bar", task: task %>
   <%end%>
 </div>
@@ -102,7 +103,7 @@
   <h3 class="description mt-2">Steps</h3>
 <%@project.tasks.each do |task|%>
 <li><span class="label"></span><%=task.title%></li>
-<p><%=task.comment%></p>
+<p><%=task.description%></p>
 <%end%>
 </div>
 

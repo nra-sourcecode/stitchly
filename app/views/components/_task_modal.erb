@@ -11,15 +11,18 @@
       <div class="modal-body">
         <p>You checked off a task! Do you want to add a comment and an image?</p>
         <div class="form-modal">
-        <%= simple_form_for (:task) do |f|%>
-        <%= f.input :comment, placeholder: "Type your comment here..." %>
-        <%= f.input :images, as: :file, input_html: { multiple: true } %>
+        <%= simple_form_for (task) do |f|%>
+        <%= f.input :images, as: :file, input_html: { multiple: true, id: "image-modal" } %>
+        <% task.project.images.each do |img| %>
+        <%= f.hidden_field :images, multiple: true, value: img.signed_id %>
+        <%= f.input :comment, placeholder: "Type your comment here..."%>
+        <%end%>
       </div>
       </div>
       <div class="modal-footer d-flex justify-content-between">
         <button type="button" class="button" data-bs-dismiss="modal">Close</button>
-        <div><%= f.button :submit, "Update project", class: "button" %></div>
-        <%end%>
+        <%= f.button :submit, "Update project", class: "button" %>
+        <% end %>
       </div>
     </div>
   </div>
