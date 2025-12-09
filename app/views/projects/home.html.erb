@@ -18,24 +18,14 @@
                   <img src="<%= asset_path("sweater.webp") %>" alt="Placeholder">
                 <% end %>
 
-                <%# Project title %>
-                <div class="card-body">
-                  <h3><%= project.title.capitalize %></h3>
-                </div>
-
-                <%# Difficulty %>
-                <div class="difficulty">
-                  <p><%= (project.difficulty.presence || "Unknown").capitalize %></p>
-                </div>
-
-                <%# Progress %>
-                <div class="progress d-flex flex-row-reverse">
-                  <span>40%</span>
-                </div>
-
-              </div>
-            <% end %>
-          <% end %>
+        <div class="card-body">
+          <h3><%= project.title.capitalize %></h3>
+        </div>
+        <div class="difficulty">
+          <p><%= (project.difficulty.presence || "Unknown").capitalize %></p>
+        </div>
+        <div class="progress d-flex flex-row-reverse">
+          <span><%= project.percentage %>%</span>
         </div>
 
       <% else %>
@@ -80,7 +70,7 @@
           <p><%= (project.difficulty.presence || "Unknown").capitalize %></p>
         </div>
         <div class="progress d-flex flex-row-reverse">
-          <span>40%</span>
+          <span><%= project.percentage %>%</span>
         </div>
       </div>
     <% end %>
