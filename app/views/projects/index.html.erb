@@ -1,32 +1,77 @@
-<h2 class="project-status">Ongoing Projects</h2>
+<% if @ongoing_projects.any? %>
+      <h2 class="project-status">
+        Ongoing Projects
+      </h2>
+      <% end %>
+     <% if @ongoing_projects.any? %>
+        <div class="projects-grid">
+          <% @ongoing_projects.each do |project| %>
+            <%= link_to project_path(project), class: "project-card-link" do %>
+              <div class="project-card">
 
-<div class="projects-grid">
+                <% if project.images.attached? %>
+                  <img src="<%= url_for(project.images.last) %>" alt="<%= project.title %> image">
+                <% else %>
+                  <img src="<%= asset_path("sweater.webp") %>" alt="Placeholder">
+                <% end %>
 
-  
-  <% @projects.each do |project| %>
-    <%= link_to project_path(project), class: "project-card-link" do %>
-      <div class="project-card">
+                <%# Project title %>
+                <div class="card-body">
+                  <h3><%= project.title.capitalize %></h3>
+                </div>
 
-        <% if project.images.attached? %>
-          <img src="<%= url_for(project.images.last) %>" alt="<%= project.title %> image">
-        <% else %>
-          <img src="<%= asset_path("sweater.webp") %>" alt="Placeholder">
-        <% end %>
+                <%# Difficulty %>
+                <div class="difficulty">
+                  <p><%= (project.difficulty.presence || "Unknown").capitalize %></p>
+                </div>
 
-          <%# Project title %>
-          <div class="card-body">
-            <h3><%= project.title.capitalize %></h3>
-          </div>
-          <%# Difficulty %>
-          <div class="difficulty">
-          <p><%= (project.difficulty.presence || "Unknown").capitalize %></p>
-          </div>
-          <%# Progress %>
-          <div class="progress d-flex flex-row-reverse">
-            <span>40%</span>
-          </div>
+                <%# Progress %>
+                <div class="progress d-flex flex-row-reverse">
+                  <span>40%</span>
+                </div>
 
-      </div>
-    <% end %>
-  <% end %>
-</div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+<% end %>
+
+<%# Not started projects %>
+
+  <% if @not_started_projects.any? %>
+      <h2 class="project-status">
+        Not started Projects
+      </h2>
+      <% end %>
+     <% if @not_started_projects.any? %>
+        <div class="projects-grid">
+          <% @not_started_projects.each do |project| %>
+            <%= link_to project_path(project), class: "project-card-link" do %>
+              <div class="project-card">
+
+                <% if project.images.attached? %>
+                  <img src="<%= url_for(project.images.last) %>" alt="<%= project.title %> image">
+                <% else %>
+                  <img src="<%= asset_path("sweater.webp") %>" alt="Placeholder">
+                <% end %>
+
+                <%# Project title %>
+                <div class="card-body">
+                  <h3><%= project.title.capitalize %></h3>
+                </div>
+
+                <%# Difficulty %>
+                <div class="difficulty">
+                  <p><%= (project.difficulty.presence || "Unknown").capitalize %></p>
+                </div>
+
+                <%# Progress %>
+                <div class="progress d-flex flex-row-reverse">
+                  <span>40%</span>
+                </div>
+
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
