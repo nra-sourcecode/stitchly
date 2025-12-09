@@ -1,4 +1,4 @@
-<div class="message <%= message.role %>" id="chat-<%= dom_id(message) %>">
+<div class="message <%= message.role %>" id="<%= dom_id(message) %>">
   <div class="message-role"><strong><%= message.assistant? ? "Yarni" : message.chat.user.first_name.capitalize %>:</strong></div>
   <div class="message-content"><%= message.content.present? ? raw(render_markdown(message.content)) : "..." %></div>
   <small class="message-time"><%= message.created_at.strftime("%d %b %Y %H:%M") %></small>
