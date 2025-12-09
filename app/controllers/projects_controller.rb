@@ -30,13 +30,15 @@ class ProjectsController < ApplicationController
     @finished_projects    = current_user.projects.where(status: "finished").limit(2)
     @navbar = true
     @text = "Home"
+    @projects = current_user.projects.where(status: "ongoing").or(current_user.projects.where(status: "not started"))
   end
 
   def index
-    @projects = current_user.projects.where(status: "ongoing").or(current_user.projects.where(status: "not started"))
-    @text = "My Ongoing Projects"
+    @not_started_projects = current_user.projects.where(status: "not started")
+    @ongoing_projects     = current_user.projects.where(status: "ongoing")
+    # @projects = current_user.projects.where(status: "ongoing").or(current_user.projects.where(status: "not started"))
+    @text = "My Projects"
     @navbar = true
-
 
   end
 
