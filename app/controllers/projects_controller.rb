@@ -28,9 +28,6 @@ class ProjectsController < ApplicationController
     @not_started_projects = current_user.projects.where(status: "not started").limit(2)
     @ongoing_projects     = current_user.projects.where(status: "ongoing").limit(2)
     @finished_projects    = current_user.projects.where(status: "finished").limit(2)
-
-    # will be updated later when the status is ready
-    # @projects = current_user.projects.limit(2)
     @navbar = true
     @text = "Home"
   end
@@ -39,7 +36,7 @@ class ProjectsController < ApplicationController
     @projects = current_user.projects.where(status: "ongoing").or(current_user.projects.where(status: "not started"))
     @text = "My Ongoing Projects"
     @navbar = true
-    
+
 
   end
 

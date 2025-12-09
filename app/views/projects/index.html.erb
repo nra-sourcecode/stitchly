@@ -1,63 +1,56 @@
-<div class="container">
-  <div class="row justify-content-center">
-      <div id="projects">
-        <% if @projects.any? %>
+
+
+      <% if @projects.any? %>
+        <h2 class="project-status">Ongoing Projects</h2>
+      <% end %>
+
+      <% if @projects.any? %>
+        <div class="projects-grid">
           <% @projects.each do |project| %>
-            <h4><%= project.title %></h4>
+            <%= link_to project_path(project), class: "project-card-link" do %>
+              <div class="project-card">
+
+                <% if project.images.attached? %>
+                  <img src="<%= url_for(project.images.last) %>" alt="<%= project.title %> image">
+                <% else %>
+                  <img src="<%= asset_path("sweater.webp") %>" alt="Placeholder">
+                <% end %>
+
+                <%# Project title %>
+                <div class="card-body">
+                  <h3><%= project.title.capitalize %></h3>
+                </div>
+
+                <%# Difficulty %>
+                <div class="difficulty">
+                  <p><%= (project.difficulty.presence || "Unknown").capitalize %></p>
+                </div>
+
+                <%# Progress %>
+                <div class="progress d-flex flex-row-reverse">
+                  <span>40%</span>
+                </div>
+
+              </div>
+            <% end %>
           <% end %>
-       <% else %>
+        </div>
+
+      <% else %>
         <div class="text-center">
           <em>Sorry, no projects found.</em>
           <br>
           <img src="<%= asset_path("sad_cat.jpg") %>"
                alt="Sad Cat"
                class="mt-3"
-               style="max-width:150px;">
-        </div>
+               style="max-width:250px;">
 
+      <div class="pt-5" style="text-align: center;">
+        <%= link_to new_project_path do %>
+          <p class="button">Create New Project</p>
+        <% end %>
+      </div>
+        </div>
       <% end %>
 
-<div class="pt-5" style="text-align: center;">
-  <%= link_to new_project_path do %>
-    <p class="button">Create New Project</p>
-  <% end %>
-</div>
 
-    </div>
-  </div>
-</div>
-
-<% if @projects.any? %>
-  <h2 class="project-status">Ongoing Projects</h2>
-<% end %>
-
-<div class="projects-grid">
-
-
-  <% @projects.each do |project| %>
-    <%= link_to project_path(project), class: "project-card-link" do %>
-      <div class="project-card">
-
-        <% if project.images.attached? %>
-          <img src="<%= url_for(project.images.last) %>" alt="<%= project.title %> image">
-        <% else %>
-          <img src="<%= asset_path("sweater.webp") %>" alt="Placeholder">
-        <% end %>
-
-          <%# Project title %>
-          <div class="card-body">
-            <h3><%= project.title.capitalize %></h3>
-          </div>
-          <%# Difficulty %>
-          <div class="difficulty">
-          <p><%= (project.difficulty.presence || "Unknown").capitalize %></p>
-          </div>
-          <%# Progress %>
-          <div class="progress d-flex flex-row-reverse">
-            <span>40%</span>
-          </div>
-
-      </div>
-    <% end %>
-  <% end %>
-</div>
