@@ -37,12 +37,14 @@ $bot-text-color: #2e2c2c; // Bot text color
         background-color: $bot-msg-bg;
         color: $bot-text-color;
         align-self: flex-start; // Align assistant messages to the left
-        border-radius: 35px 35px 35px 1px;;
+        border-radius: 35px 35px 35px 1px;
+        padding-left: 20px;
 
         .message-role {
           font-size: 12px;
-          color: $text-color;
+          color: #A7727D;
           margin-bottom: 5px;
+          padding-top: 2px;
 
           strong {
             display: block;
@@ -55,9 +57,11 @@ $bot-text-color: #2e2c2c; // Bot text color
         }
 
         .message-time {
-          font-size: 10px;
-          color: $text-color;
+          font-size: 9px;
+          font-style: italic;
+          color:  rgb(37, 36, 36);
           text-align: left; // Align time to the left
+          margin-top: -10px;
         }
       }
 
@@ -65,12 +69,13 @@ $bot-text-color: #2e2c2c; // Bot text color
         font-size: 12px;
         background-color: #A7727D;
         color: $user-text-color;
-        align-self: flex-end; // Align user messages to the right
+        align-self: flex-end; // Align user messages to the righ
+
 
         .message-role {
           align-self: flex-end;
           font-size: 12px;
-          margin-bottom: 2px;
+          padding-top: 4px;
 
           strong {
             display: block;
@@ -83,8 +88,9 @@ $bot-text-color: #2e2c2c; // Bot text color
         }
 
         .message-time {
-          font-size: 10px;
-          color: $text-color;
+          font-size: 9px;
+          font-style: italic;
+          color: rgb(37, 36, 36);
           text-align: right; // Align time to the right
           margin-top: -15px;
         }
@@ -143,6 +149,7 @@ $bot-text-color: #2e2c2c; // Bot text color
 .chat-form {
   flex: 1;
   border: none;
+  outline: none;
 
 
 
