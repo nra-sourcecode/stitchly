@@ -1,11 +1,7 @@
 <%# Main container %>
 <%# a bootstrap container with default padding %>
 <div class="container project-container">
-
-
-<%= render "components/start_modal"%>
-
-
+  <%= render "components/start_modal"%>
   <%# lets Bootstrap JS target this carousel, applies styling + animation, makes it auto-slide.%>
   <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
@@ -15,7 +11,6 @@
         </div>
       <% end %>
     </div>
-
     <%# Carousel navigation buttons %>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -27,27 +22,22 @@
     </button>
   </div>
   <h2 class="mt-4"><strong><%= @project.title.capitalize %></strong></h2>
+  <div class= "d-flex pt-4">
+    <%@project.tasks.sort_by { |t| t.id }.each do |task|%>
+    <%= render "components/task_modal", task: task %>
+    <%= render "components/progress_bar", task: task %>
+    <%end%>
+  </div>
+  <div class= "d-flex justify-content-between">
+    <p><%= @project.difficulty %></p>
 
-<div class= "d-flex pt-4">
-  <%@project.tasks.sort_by { |t| t.id }.each do |task|%>
-  <%= render "components/task_modal", task: task %>
-  <%= render "components/progress_bar", task: task %>
-  <%end%>
-</div>
-
-<div class= "d-flex justify-content-between">
-  <p><%= @project.difficulty %></p>
-
-  <span class="label">Status: <%= @project.status %></span>
-</div>
-
-
-
-<div class="d-flex justify-content-around mt-3 mb-3">
-  <% if @project.status == "finished" %>
-    <button class="button">Ask Yarni</button>
-    <% end %>
-</div>
+    <span class="label">Status: <%= @project.status %></span>
+  </div>
+  <div class="d-flex justify-content-around mt-3 mb-3">
+    <% if @project.status == "finished" %>
+      <button class="button">Ask Yarni</button>
+      <% end %>
+  </div>
 
 
 <%# Bootstrap flex container - title %>
