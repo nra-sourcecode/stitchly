@@ -45,12 +45,11 @@
 
 <%# Leftover yarn - Yarni chat %>
 <% if @project.status == "finished" %>
-<div class="d-flex justify-content-around mt-4 mb-5 ask-yarni">
-
+  <div class="d-flex justify-content-around mt-4 mb-5 ask-yarni">
     <h6>Leftover yarn?<br>Yarni can help!</h6>
-    <%= link_to "Ask", chatbot_path, class: "button" %>
-</div>
- <% end %>
+    <%= link_to "Ask", yarni_leftover_path, class: "button" %>
+  </div>
+<% end %>
 
 
 <%# Bootstrap flex container - title %>
