@@ -1,7 +1,7 @@
 <div class="container">
 
 <%= simple_form_for (@project) do |f|%>
-    <div id="spinner"></div>
+    <div id="spinner" class="d-none"></div>
 <%= f.input :title, placeholder: "Type your title here..." %>
 <%= f.input :designer %>
 <%= f.input :category, :label => "Category", collection: ["Accessory", "Bag", "Blanket", "Gloves", "Hat", "Home Decor", "Pet Clothes", "Scarf", "Shawl", "Socks", "Sweater", "T-shirt", "Vest", "Other"] %>
