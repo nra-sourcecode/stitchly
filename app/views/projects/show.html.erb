@@ -32,7 +32,7 @@
 <% if @project.status == "ongoing" %>
 <div class= "d-flex pt-4">
   <%@project.tasks.sort_by { |t| t.id }.each do |task|%>
-  <%= render "components/task_modal", task: task, project: @project %>
+  <%= render "components/task_modal", task: task %>
   <%= render "components/progress_bar", task: task %>
   <%end%>
 </div>
@@ -69,6 +69,12 @@
     <%= link_to edit_project_path(@project) do %>
       <i class="fa-regular fa-pen-to-square"></i>
     <% end %>
+<%# upload image %>
+<%= link_to edit_project_path(@project) do %>
+      <i class="fa-solid fa-cloud-arrow-up"></i>
+    <% end %>
+  </div>
+</div>
   </div>
 </div>
 
@@ -87,7 +93,9 @@
   <p><span class="label">Category:</span> <%= @project.category %></p>
   <p><span class="label">Difficulty:</span> <%= @project.difficulty %></p>
   <p><span class="label">Needle:</span> <%= @project.needle_size %></p>
-  <p><span class="label">Amount of yarn:</span> <%= @amount %></p>
+  <% p_yarns = @project.project_yarns %>
+   <%#= p_yarns.map { |project_yarn| "#{project_yarn.yarn.material}: #{project_yarn.amount}"}.join(", ") %>
+  <p><span class="label">Amount of yarn:</span> <%= @project.project_yarns.first.amount %></p>
 
   <% @yarns = @project.yarns %>
 

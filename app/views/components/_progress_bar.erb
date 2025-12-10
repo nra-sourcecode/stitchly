@@ -7,8 +7,7 @@
 
 <div style="width: <%= width %>%; height: 50px; position: relative">
   <div class="d-flex">
-  <button type="button" class="form-button" data-bs-toggle="modal" data-bs-target=<%="#taskModal#{task.id}"%>>
-  </button>
+<div class="form_button <%= "checked" if task.state %>" data-bs-toggle="modal" data-bs-target= <%="#taskModal#{task.id}"%>></div>
   <div class="progress_bar mt-2 <%= "checked" if task.state %>"></div>
   </div>
 </div>
