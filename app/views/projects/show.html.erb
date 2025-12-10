@@ -41,6 +41,14 @@
 </div>
 
 
+
+<div class="d-flex justify-content-around mt-3 mb-3">
+  <% if @project.status == "finished" %>
+    <button class="button">Ask Yarni</button>
+    <% end %>
+</div>
+
+
 <%# Bootstrap flex container - title %>
 <div class="d-flex justify-content-between align-items-center mt-3">
   <h2 class="project-title"><%= @project.title.capitalize %></strong></h2>
@@ -59,8 +67,6 @@
   </div>
 </div>
 
-<p class="project-difficulty"><%= @project.difficulty %></p>
-
 
   <%# <div>
     <p class="mb-1">10%</p>
@@ -75,6 +81,8 @@
   <p><span class="label">Designer:</span> <%= @project.designer %></p>
   <p><span class="label">Category:</span> <%= @project.category %></p>
   <p><span class="label">Needle:</span> <%= @project.needle_size %></p>
+  <p><span class="label">Amount of yarn:</span> <%= @amount %></p>
+
 
   <% @yarns = @project.yarns %>
 
@@ -94,9 +102,9 @@
     <% end %>
   <% end %>
 </div>
-
-
 </div>
+
+
 
 <div class="project-description">
   <h3 class="description mt-2">Steps</h3>
