@@ -88,7 +88,9 @@
   <p><span class="label">Designer:</span> <%= @project.designer %></p>
   <p><span class="label">Category:</span> <%= @project.category %></p>
   <p><span class="label">Needle:</span> <%= @project.needle_size %></p>
-  <p><span class="label">Amount of yarn:</span> <%= @amount %></p>
+  <% p_yarns = @project.project_yarns %>
+   <%#= p_yarns.map { |project_yarn| "#{project_yarn.yarn.material}: #{project_yarn.amount}"}.join(", ") %>
+  <p><span class="label">Amount of yarn:</span> <%= @project.project_yarns.first.amount %></p>
 
 
   <% @yarns = @project.yarns %>
