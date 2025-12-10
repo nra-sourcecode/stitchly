@@ -2,11 +2,19 @@ class TasksController < ApplicationController
 
   def update
     @task = Task.find(params[:id])
+    @project = @task.project
     @task.update!(task_params)
     @task.update!(state: true)
-    raise
+   # fetch images from the form
+    images = params.dig(:project, :images)
+
+    if images.present?
+      cleaned_images = images.reject(&:blank?)
+      cleaned_images.each do |image|
+        @project.images.attach(image)
+      end
+    end
     @task.project.project_complete?
-    @task.project.update(project_params)
     redirect_to project_path(@task.project)
   end
 

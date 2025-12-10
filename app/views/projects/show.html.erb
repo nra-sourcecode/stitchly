@@ -30,7 +30,7 @@
 
 <div class= "d-flex pt-4">
   <%@project.tasks.sort_by { |t| t.id }.each do |task|%>
-  <%= render "components/task_modal", task: task %>
+  <%= render "components/task_modal", task: task, project: @project %>
   <%= render "components/progress_bar", task: task %>
   <%end%>
 </div>
