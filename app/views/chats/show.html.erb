@@ -10,7 +10,7 @@
     <%= render "messages/messages", messages: @chat.messages.order(:created_at) %>
   </div>
 
-  <div id="message-form" class="new-message-form sticky-bottom w-100">
+  <div id="message-form" class="new-message-form sticky-bottom w-100" data-controller="enter">
     <%= render "messages/form", chat: @chat, message: @message %>
   </div>
 </div>
