@@ -6,8 +6,10 @@
 <%= f.input :needle_size %>
 <%= f.input :product_size, :label => "Size", collection: [ "xxxs", "xxs", "xs", "s", "m", "l", "xl", "xxl", "3xl", "4xl", "5xl" ] %>
 <%= f.input :difficulty, :label => "Difficult", collection: [ "Easy", "Intermediate", "Difficult" ] %>
-<%= f.association :yarns, label_method: :material, value_method: :id, include_blank: false, as: :check_boxes, multiple: :true %>
 
+<p class="form-label">Yarns</p>
+  <div class="yarns"><%= f.association :yarns, label: false, wrapper: false, label_method: :material, value_method: :id, include_blank: false, as: :check_boxes, multiple: :true %></div>
+  </div>
 <%= f.simple_fields_for (:project_yarn) do |p|%>
 <%=p.input :amount%>
 <%end%>
