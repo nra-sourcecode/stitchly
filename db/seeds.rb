@@ -40,8 +40,8 @@ Yarn.destroy_all
 
  all_projects = Project.all
  all_projects.each do |project|
-   Task.create!(project: project, comment: "jsdsdiwjidjde", title: "back")
-   Task.create!(project: project, comment: "snfeneneff", title: "let s do the shoulders")
+   Task.create!(project: project, description: "jsdsdiwjidjde", title: "back")
+   Task.create!(project: project, description: "snfeneneff", title: "let s do the shoulders")
  end
 
 Yarn.create!(material: "wool")
