@@ -9,6 +9,8 @@ class PagesController < ApplicationController
 
   def profile
     @navbar = true
+    @finished_projects = current_user.projects.where(status: "finished")
+    @projects = current_user.projects.where(status: "ongoing")
   end
 
   def home
