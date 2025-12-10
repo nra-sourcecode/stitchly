@@ -15,16 +15,14 @@ class MessagesController < ApplicationController
 
     if @message.save
       @assistant_message = @chat.messages.create(role: "assistant", content: "")
-
-      @ruby_llm_chat = RubyLLM.chat.with_temperature(0.7)
+      @ruby_llm_chat = RubyLLM.chat(model: "gpt-4o").with_temperature(0.7)
       build_conversation_history
-      response = @ruby_llm_chat.with_instructions(SYSTEM_PROMPT).ask(@message.content, with: {image: url_for(@project.pattern) }) do |chunk|
+      response = @ruby_llm_chat.with_instructions(SYSTEM_PROMPT).ask(@message.content) do |chunk|
         next if chunk.content.blank? # skip empty chunks
 
         @assistant_message.content += chunk.content
 
-        sleep 1.0/24.0
-
+        sleep 1.0 / 24.0
         broadcast_replace(@assistant_message)
       end
       # Message.create(chat: @chat, content: response.content, role: "assistant")

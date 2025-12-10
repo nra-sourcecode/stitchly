@@ -28,17 +28,18 @@ class ProjectsController < ApplicationController
     @not_started_projects = current_user.projects.where(status: "not started").limit(2)
     @ongoing_projects     = current_user.projects.where(status: "ongoing").limit(2)
     @finished_projects    = current_user.projects.where(status: "finished").limit(2)
-
-    # will be updated later when the status is ready
-    # @projects = current_user.projects.limit(2)
     @navbar = true
     @text = "Home"
+    @projects = current_user.projects.where(status: "ongoing").or(current_user.projects.where(status: "not started"))
   end
 
   def index
-    @projects = current_user.projects.where(status: "ongoing").or(current_user.projects.where(status: "not started"))
-    @text = "My Ongoing Projects"
+    @not_started_projects = current_user.projects.where(status: "not started")
+    @ongoing_projects     = current_user.projects.where(status: "ongoing")
+    # @projects = current_user.projects.where(status: "ongoing").or(current_user.projects.where(status: "not started"))
+    @text = "My Projects"
     @navbar = true
+
   end
 
   def finish
@@ -60,6 +61,7 @@ class ProjectsController < ApplicationController
     @project.user = current_user
 
     if @project.save
+      
       yarn_params
       ids = params[:project][:yarn_ids].reject(&:blank?)
       @amount = params[:project][:project_yarn][:amount]
@@ -114,6 +116,7 @@ def update
   @project = Project.find(params[:id])
 
   if @project.update(project_params)
+    
     redirect_to project_path(@project)
   else
     render :edit, status: :unprocessable_entity
