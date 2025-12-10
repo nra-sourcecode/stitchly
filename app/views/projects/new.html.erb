@@ -8,20 +8,19 @@
 <%= f.input :difficulty, :label => "Difficult", collection: [ "Easy", "Intermediate", "Difficult" ] %>
 <p class="form-label">Yarns</p>
   <div class="yarns"><%= f.association :yarns, label: false, wrapper: false, label_method: :material, value_method: :id, include_blank: false, as: :check_boxes, multiple: :true %></div>
+  <%= f.simple_fields_for (:project_yarn) do |p|%>
+  <%=p.input :amount%>
+  <%end%>
+  <div class="d-flex justify-content-between p-3">
+  <div><%= f.input :pattern, as: :file %></div>
+  <div><%= f.input :images, as: :file, input_html: { multiple: true } %></div>
   </div>
+  <div class="d-flex justify-content-around floating">
+  <%= f.button :submit, "Create project", class: "button" %>
+  </div>
+  <% end %>
+</div>
 
-<%= f.simple_fields_for (:project_yarn) do |p|%>
-<%=p.input :amount%>
-<%end%>
-<div class="d-flex justify-content-between p-3">
-<div><%= f.input :pattern, as: :file %></div>
-<div><%= f.input :images, as: :file, input_html: { multiple: true } %></div>
-</div>
-<div class="d-flex justify-content-around floating">
-<%= f.button :submit, "Create project", class: "button" %>
-</div>
-<% end %>
-</div>
 
 <%# f.association :company, label_method: :company_name, value_method: :id, include_blank: false %>
 <%# Yarn.all.map { |yarn| yarn.material.upcase } %>
