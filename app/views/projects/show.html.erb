@@ -74,8 +74,7 @@
     <% end %>
   </div>
 </div>
-  </div>
-</div>
+
 
 
   <%# <div>
@@ -85,58 +84,57 @@
     </div>
   </div> %>
 
-<div class="project-description">
-  <h3 class="description">Project Description</h3>
+  <div class="project-description">
+    <h3 class="description">Project Description</h3>
 
-  <p><span class="label">Designer:</span> <%= @project.designer %></p>
-  <p><span class="label">Category:</span> <%= @project.category %></p>
-  <p><span class="label">Difficulty:</span> <%= @project.difficulty %></p>
-  <p><span class="label">Needle:</span> <%= @project.needle_size %></p>
-  <% p_yarns = @project.project_yarns %>
-   <%#= p_yarns.map { |project_yarn| "#{project_yarn.yarn.material}: #{project_yarn.amount}"}.join(", ") %>
-  <p><span class="label">Amount of yarn:</span> <%= @project.project_yarns.first.amount %></p>
+    <p><span class="label">Designer:</span> <%= @project.designer %></p>
+    <p><span class="label">Category:</span> <%= @project.category %></p>
+    <p><span class="label">Difficulty:</span> <%= @project.difficulty %></p>
+    <p><span class="label">Needle:</span> <%= @project.needle_size %></p>
+    <% p_yarns = @project.project_yarns %>
+    <%#= p_yarns.map { |project_yarn| "#{project_yarn.yarn.material}: #{project_yarn.amount}"}.join(", ") %>
+    <p><span class="label">Amount of yarn:</span> <%= @project.project_yarns.first.amount %></p>
 
-  <% @yarns = @project.yarns %>
+    <% @yarns = @project.yarns %>
 
-  <div class="d-flex">
-    <p>
-      <span class="label">Composition of Yarn:</span>
-      <%= @yarns.map { |yarn| yarn.material }.join(", ") %>
-    </p>
+    <div class="d-flex">
+      <p>
+        <span class="label">Composition of Yarn:</span>
+        <%= @yarns.map { |yarn| yarn.material }.join(", ") %>
+      </p>
+    </div>
+
+    <div class="d-flex">
+      <p><span class="label">Pattern:</span></p>
+
+      <% if @project.pattern.attached? %>
+        <%= link_to url_for(@project.pattern), class: "pattern-icon ms-2" do %>
+          <i class="fa-regular fa-file-pdf fa-lg"></i>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 
-<div class="d-flex">
-  <p><span class="label">Pattern:</span></p>
 
-  <% if @project.pattern.attached? %>
-    <%= link_to url_for(@project.pattern), class: "pattern-icon ms-2" do %>
-      <i class="fa-regular fa-file-pdf fa-lg"></i>
-    <% end %>
-  <% end %>
+
+  <div class="project-description">
+    <h3 class="description mt-2">Steps</h3>
+  <%@project.tasks.each do |task|%>
+  <li><span class="label"></span><%=task.title%></li>
+  <p><%=task.description%></p>
+  <%end%>
+  </div>
+
+
+
+
+  <div class="d-flex justify-content-around floating mt-3">
+    <% if @project.status == "not started" %>
+      <button id="start-button" class="button" data-bs-toggle="modal" data-bs-target="#startModal">
+        Start Project</button>
+      <% end %>
+  </div>
 </div>
-</div>
-
-
-
-<div class="project-description">
-  <h3 class="description mt-2">Steps</h3>
-<%@project.tasks.each do |task|%>
-<li><span class="label"></span><%=task.title%></li>
-<p><%=task.description%></p>
-<%end%>
-</div>
-
-
-
-
-<div class="d-flex justify-content-around floating mt-3">
-  <% if @project.status == "not started" %>
-    <button id="start-button" class="button" data-bs-toggle="modal" data-bs-target="#startModal">
-      Start Project</button>
-    <% end %>
-</div>
-
-
 <%# <div class="d-flex justify-content-around floating mt-3">
   <% if @project.status == "not started" %>
     <%# <%= link_to project_start_path(@project.id), id: "start-button", class: "button", data: { turbo_method: :patch,
