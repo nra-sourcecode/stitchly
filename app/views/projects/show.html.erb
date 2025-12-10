@@ -35,8 +35,6 @@
 </div>
 
 <div class= "d-flex justify-content-between">
-  <p><%= @project.difficulty %></p>
-
   <span class="label">Status: <%= @project.status %></span>
 </div>
 
@@ -80,9 +78,9 @@
 
   <p><span class="label">Designer:</span> <%= @project.designer %></p>
   <p><span class="label">Category:</span> <%= @project.category %></p>
+  <p><span class="label">Difficulty:</span> <%= @project.difficulty %></p>
   <p><span class="label">Needle:</span> <%= @project.needle_size %></p>
   <p><span class="label">Amount of yarn:</span> <%= @amount %></p>
-
 
   <% @yarns = @project.yarns %>
 
