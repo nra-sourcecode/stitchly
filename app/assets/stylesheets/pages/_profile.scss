@@ -1,0 +1,54 @@
+.profile-buttons {
+     position: absolute;
+    bottom: 100px;
+    display: block;
+    position: fixed;
+    display: flex;
+    flex-grow: 2;
+    justify-content: space-evenly; 
+    .button {
+       width: 130px; 
+    }
+}
+.container {
+    img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        position: relative;
+        left: 36%;
+        
+        margin-bottom: 30px;
+        border: solid;
+        border-color: rgb(206, 206, 206);
+    }
+
+    .a {
+        color: gray;
+    }
+    
+}
+.ongoing {
+    border: solid;
+    border-color: rgb(241, 241, 241);
+    border-radius: 15%;
+    &:hover {
+        color: $pink;
+        background-color: $light-beige;
+    }
+    p {
+        color: gray;
+    }
+}
+.finished {
+    border: solid;
+    border-color: rgb(241, 241, 241);
+    border-radius: 15%;
+    &:hover {
+        color: $pink;
+        background-color: $light-beige;
+    }
+    p {
+        color: gray;
+    }
+}

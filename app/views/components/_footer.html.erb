@@ -11,17 +11,18 @@
          <% end %>
         <p class="mb-0">New Project</p>
     </div>
-    <div class= "box d-flex flex-column align-items-center <%= "footer-active" if current_page?(controller: "pages", action: "profile")%>">
-        <%= link_to profile_path do %>
-            <i class="fa-solid fa-user"></i>
-        <% end %>
-        <p class="mb-0">Profile</p>
-    </div>
-
+    
     <div class= "box d-flex flex-column align-items-center <%= "footer-active" if current_page?(controller: "pages", action: "chatbot")%> ">
     <%= link_to chatbot_path do %>
         <i class="fa-brands fa-github-alt"></i>
     <% end %>
         <p class="mb-0">Yarni</p>
+    </div>
+
+    <div class= "box d-flex flex-column align-items-center <%= "footer-active" if current_page?(controller: "pages", action: "profile")%>">
+        <%= link_to profile_path do %>
+            <i class="fa-solid fa-user"></i>
+        <% end %>
+        <p class="mb-0">Profile</p>
     </div>
 </div>

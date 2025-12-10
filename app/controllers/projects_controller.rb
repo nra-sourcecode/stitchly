@@ -99,7 +99,7 @@ class ProjectsController < ApplicationController
     @response = @ruby_llm_chat.ask(SYSMTEM_PROMPT, with: {pdf: @project.pattern.url})
     @tasks_array = JSON.parse(@response.content[7...-3])
     @tasks_array.each do |task|
-      newtask = Task.new(comment: task["step_description"], title: task["step_title"])
+      newtask = Task.new(description: task["step_description"], title: task["step_title"])
       newtask.project = @project
       newtask.save
     end
@@ -136,7 +136,7 @@ end
   private
 
   def project_params
-    params.require(:project).permit(:title, :designer, :category, :needle_size, :product_size, :difficulty, :pattern, images: [], project_yarns_attributes: [:id, :yarn_id, :amount])
+    params.require(:project).permit(:title, :designer, :category, :needle_size, :product_size, :difficulty, :pattern, images: [], project_yarns_attributes: [:id, :yarn_id, :amount], task_attributes: [:id, :comment])
   end
 
   def yarn_params
@@ -148,6 +148,6 @@ end
   end
 
   def task_params
-      params.require(:task).permit(:comment, :title)
+      params.require(:task).permit(:description, :title, :comment)
   end
 end
