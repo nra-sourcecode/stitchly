@@ -1,8 +1,8 @@
 <div class="signup-form background-img d-flex flex-column justify-content-end">
   <div class="devise-form-card">
-    <div class="signup-container h-100">
+    <div class="signup-container h-100 mt-1">
 
-      <h2 class="bold-text">Welcome to Knitly!</h2>
+      <h2 class="bold-text pb-3">Welcome to Knitly!</h2>
 
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
@@ -22,7 +22,7 @@
         </div>
 
         <div class="form-actions">
-          <%= f.button :submit, "Login", class: "button login-btn" %>
+          <%= f.button :submit, "Login", class: "button login-btn mt-2" %>
         </div>
 
       <% end %>
