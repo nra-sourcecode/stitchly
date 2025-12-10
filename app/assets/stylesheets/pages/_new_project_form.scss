@@ -64,6 +64,14 @@
   }
 }
 
+.yarns {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+
+      .col-form-label {
+        display: none;
+      }
 #image-modal {
   font-size: 12px;
 }
