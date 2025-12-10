@@ -5,19 +5,19 @@
     position: fixed;
     display: flex;
     flex-grow: 2;
-    justify-content: space-evenly; 
+    justify-content: space-evenly;
     .button {
-       width: 130px; 
+       width: 130px;
     }
 }
-.container {
+.container-profile {
     img {
         width: 100px;
         height: 100px;
         border-radius: 50%;
         position: relative;
         left: 36%;
-        
+
         margin-bottom: 30px;
         border: solid;
         border-color: rgb(206, 206, 206);
@@ -26,7 +26,7 @@
     .a {
         color: gray;
     }
-    
+
 }
 .ongoing {
     border: solid;
