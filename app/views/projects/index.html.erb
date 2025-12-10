@@ -17,18 +17,20 @@
 
                 <%# Project title %>
                 <div class="card-body">
-                  <h3><%= project.title.capitalize %></h3>
+                  <h3 class="text-center"><%= project.title.capitalize %></h3>
                 </div>
 
                 <%# Difficulty %>
                 <div class="difficulty">
-                  <p><%= (project.difficulty.presence || "Unknown").capitalize %></p>
+                  <p class="text-center"><%= (project.difficulty.presence || "Unknown").capitalize %></p>
+
                 </div>
 
                 <%# Progress %>
-          <div class="progress d-flex flex-row-reverse">
-            <span><%= project.percentage %>%</span>
-          </div>
+<div class="progress d-flex mt-3 justify-content-evenly">
+  <p class="label">Progress</p>
+  <span><%= project.percentage %>%</span>
+</div>
 
               </div>
             <% end %>
@@ -57,18 +59,20 @@
 
                 <%# Project title %>
                 <div class="card-body">
-                  <h3><%= project.title.capitalize %></h3>
+                  <h3 class="text-center"><%= project.title.capitalize %></h3>
                 </div>
 
                 <%# Difficulty %>
                 <div class="difficulty">
-                  <p><%= (project.difficulty.presence || "Unknown").capitalize %></p>
+                  <p class="text-center"><%= (project.difficulty.presence || "Unknown").capitalize %></p>
                 </div>
 
                 <%# Progress %>
-          <div class="progress d-flex flex-row-reverse">
-            <span><%= project.percentage %>%</span>
-          </div>
+                
+<div class="progress d-flex mt-3 justify-content-evenly">
+  <p class="label">Progress</p>
+  <span><%= project.percentage %>%</span>
+</div>
 
               </div>
             <% end %>
