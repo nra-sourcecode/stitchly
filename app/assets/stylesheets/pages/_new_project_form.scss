@@ -64,8 +64,16 @@
   }
 }
 
+.yarns {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+
+      .col-form-label {
+        display: none;
+      }
 #image-modal {
   font-size: 12px;
 }
-
+}
 // "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.istockphoto.com%2Fphotos%2Fimage&psig=AOvVaw0KhJTtOvwFjw4XqZS5nqy9&ust=1764759250539000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCPjY9NLenpEDFQAAAAAdAAAAABAE";
