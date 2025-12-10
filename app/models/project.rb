@@ -5,6 +5,7 @@ class Project < ApplicationRecord
   has_many :yarns, through: :project_yarns
   has_one_attached :pattern
   has_many_attached :images
+  accepts_nested_attributes_for :tasks
   validates :title, presence: :true
   validates :designer, presence: :true
   validates :category, presence: true
