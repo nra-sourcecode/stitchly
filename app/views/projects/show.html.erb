@@ -29,7 +29,6 @@
   <h2 class="mt-4"><strong><%= @project.title.capitalize %></strong></h2>
 
 <%# Tasks %>
-
 <% if @project.status == "ongoing" %>
 <div class= "d-flex pt-4">
   <%@project.tasks.sort_by { |t| t.id }.each do |task|%>
@@ -40,27 +39,18 @@
 <%end%>
 
 <%# Status: %>
-
 <div class= "d-flex justify-content-between">
   <span class="label">Status: <%= @project.status %></span>
 </div>
 
 <%# Leftover yarn - Yarni chat %>
 <% if @project.status == "finished" %>
-<div class="d-flex justify-content-around mt-3 mb-3 ask-yarni">
+<div class="d-flex justify-content-around mt-4 mb-5 ask-yarni">
 
     <h6>Leftover yarn?<br>Yarni can help!</h6>
     <%= link_to "Ask", chatbot_path, class: "button" %>
 </div>
  <% end %>
-
-<%# <div class="ask-yarni d-flex justify-content-around mt-3 mb-3">
-  <% if @project.status == "finished" %>
-    <%# <h6>Leftover yarn? Yarni can help!</h6>
-    <%= link_to "Ask", chatbot_path%>
-  <%# <% end %>
-<%# </div> %>
-
 
 
 <%# Bootstrap flex container - title %>
