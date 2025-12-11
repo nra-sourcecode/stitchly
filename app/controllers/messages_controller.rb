@@ -3,7 +3,7 @@ class MessagesController < ApplicationController
   before_action :set_chat
 
 
-  SYSTEM_PROMPT = "You are a professional knitter that helps to users to.... you ca give answers no longeur than 10 lines"
+  SYSTEM_PROMPT = "You are a professional knitter that helps to users to.... you can give answers no longeur than 10 lines"
 
   def new
     @message = @chat.messages.new
