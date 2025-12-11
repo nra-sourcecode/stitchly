@@ -61,7 +61,7 @@ class ProjectsController < ApplicationController
     @project.user = current_user
 
     if @project.save
-      
+
       yarn_params
       ids = params[:project][:yarn_ids].reject(&:blank?)
       @amount = params[:project][:project_yarn][:amount]
@@ -113,7 +113,7 @@ def update
   @project = Project.find(params[:id])
 
   if @project.update(project_params)
-    
+
     redirect_to project_path(@project)
   else
     render :edit, status: :unprocessable_entity
