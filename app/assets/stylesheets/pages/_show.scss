@@ -1,5 +1,4 @@
 @import "components/buttons";
-
 // Images
 img {
   width: 100%;
@@ -7,62 +6,52 @@ img {
   border-radius: 16px;
   position: sticky;
 }
-
 // Layout containers
 .container {
   margin: 5% 0 5% 0;
   padding: 3%;
 }
-
 .project-container {
   padding: 0 6%;
 }
-
-.project-title {
+.project-description-title {
   font-size: 18px;
   font-weight: 550;
+  color: $pink;
 }
-
 .project-difficulty {
   font-size: 12px;
 }
-
 // Description
 .project-description .description {
-  font-size: 16px;
-  font-weight: 500;
   margin-bottom: 8px;
+  font-size: 18px;
+  font-weight: 550;
+  color: $pink;
 }
-
 .project-description p {
   font-size: 12px;
   margin-bottom: 1px;
-}
 
+}
 // Label (Designer, Category etc)
 .project-description .label {
   font-weight: 550;
   color: rgb(78, 78, 78);
 }
-
 .project-description li {
   font-size: 12px;
 }
-
 // p {
 //   color: gray;
 // }
-
 p strong {
   color: rgb(78, 78, 78);
 }
-
 .pattern-icon i {
   color: rgb(78, 78, 78);
   font-size: 20px;
 }
-
-
 .ask-yarni {
   background-color: #F9F5F0;
   margin-bottom: 15px;
