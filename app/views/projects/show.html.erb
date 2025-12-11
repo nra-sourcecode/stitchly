@@ -52,7 +52,7 @@
 <%# Bootstrap flex container - title %>
 
 <div class="d-flex justify-content-between align-items-center mt-3">
-  <h2 class="project-title"><%= @project.title.capitalize %></strong></h2>
+  <h2 class="project-title">Project Description</strong></h2>
 
   <div class="d-flex gap-3">
     <%# delete button %>
@@ -82,7 +82,7 @@
   </div> %>
 
   <div class="project-description">
-    <h3 class="description">Project Description</h3>
+    <%# <h3 class="description">Project Description</h3> %>
 
     <p><span class="label">Designer:</span> <%= @project.designer %></p>
     <p><span class="label">Category:</span> <%= @project.category %></p>
