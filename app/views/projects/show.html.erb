@@ -46,6 +46,7 @@
     <h6>Leftover yarn?<br>Yarni can help!</h6>
     <%= link_to "Ask", yarni_leftover_path, class: "button" %>
   </div>
+   
 <% end %>
 
 
@@ -100,13 +101,7 @@
         <%= @yarns.map { |yarn| yarn.material }.join(", ") %>
       </p>
     </div>
-    <% time = (@project.updated_at-@project.created_at)/3600 %>
-    <% if time > 1 %>
-    <p><span class="label">Time:</span> <%= time.round %> hours</p>
-    <% elsif  time > 0 && time < 1%>
-    <%  time_2= (@project.updated_at-@project.created_at)/60 %>
-    <p><span class="label">Time:</span> <%=  time_2.round  %> minutes</p>
-    <% end %>
+   
     <div class="d-flex">
       <p><span class="label">Pattern:</span></p>
 
@@ -116,6 +111,16 @@
         <% end %>
       <% end %>
     </div>
+
+    <% if @project.status == "finished" %>
+    <% time = (@project.updated_at-@project.created_at)/3600 %>
+    <% if time > 1 %>
+    <p><span class="label">Time spent:</span> <%= time.round %> hours</p>
+    <% elsif  time > 0 && time < 1%>
+    <%  time_2= (@project.updated_at-@project.created_at)/60 %>
+    <p><span class="label">Time spent:</span> <%=  time_2.round  %> minutes</p>
+    <% end %>
+    <% end %>
   </div>
 
 
