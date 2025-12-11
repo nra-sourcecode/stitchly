@@ -116,12 +116,17 @@
 
   <div class="project-description">
     <h3 class="description mt-2">Steps</h3>
-  <%@project.tasks.each do |task|%>
-  <li><span class="label"></span><%=task.title%></li>
+  <%@project.tasks.sort_by{ |task| task.id }.each do |task|%>
+  <li><span class="label"></span><strong><%=task.title%></strong></li>
   <p><%=task.description%></p>
+  <% if task.comment?%>
+  <br>
+  <p><em>Comment</em></p>
+  <p><em><%=task.comment%></em></p>
+  <br>
+  <%end%>
   <%end%>
   </div>
-
 
 
 

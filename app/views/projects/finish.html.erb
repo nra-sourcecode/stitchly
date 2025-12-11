@@ -1,4 +1,4 @@
-
+<% if @finished_projects.any? %>
 <h2 class="project-status">
   Finished Projects
 </h2>
@@ -28,3 +28,19 @@
     <% end %>
   <% end %>
 </div>
+
+
+<% else %>
+  <div class="text-center pt-2">
+    <em>Sorry, no projects found.</em>
+    <br>
+
+    <img src="<%= asset_path("sad_cat.jpg") %>" alt="Sad Cat" class="mt-3 sad-cat">
+
+    <div class="pt-5" style="text-align: center;">
+      <%= link_to new_project_path do %>
+        <p class="button">Create New Project</p>
+      <% end %>
+    </div>
+  </div>
+<% end %>
