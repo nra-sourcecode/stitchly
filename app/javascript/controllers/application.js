@@ -1,7 +1,7 @@
 import { Application } from "@hotwired/stimulus";
-import "./start_button";
-import "./spinner";
-import "./enter";
+// import "./start_button";
+// import "./spinner";
+// import "./enter";
 
 const application = Application.start();
 
