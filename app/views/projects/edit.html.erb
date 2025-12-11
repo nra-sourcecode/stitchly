@@ -14,17 +14,17 @@
     <%=p.input :amount%>
     <%end%>
 
-<div class="d-flex justify-content-between p-3">
-<div><%= f.input :pattern, as: :file %></div>
-<div><%= f.input :images, as: :file, input_html: { multiple: true } %>
-<% @project.images.each do |ph| %>
-<%= f.hidden_field :images, multiple: true, value: ph.signed_id %>
-<% end %>
-</div>
-</div>
-</div>
-<div class="d-flex justify-content-around floating">
-<%= f.button :submit, "Update project", class: "button" %>
-</div>
-<% end %>
-</div>
+    <div class="d-flex justify-content-between p-3">
+    <div><%= f.input :pattern, as: :file %></div>
+    <div><%= f.input :images, as: :file, input_html: { multiple: true } %>
+    <% @project.images.each do |ph| %>
+        <% next unless ph.blob&.persisted? %>
+        <%= hidden_field_tag "project[images][]", ph.blob.signed_id %>
+    <% end %>
+    </div>
+    </div>
+    <div class="d-flex justify-content-around floating">
+    <%= f.button :submit, "Update project", class: "button" %>
+    </div>
+    <% end %>
+    </div>

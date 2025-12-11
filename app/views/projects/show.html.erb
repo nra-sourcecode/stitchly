@@ -109,6 +109,8 @@
           <i class="fa-regular fa-file-pdf fa-lg"></i>
         <% end %>
       <% end %>
+       <% time =(@project.updated_at - @project.created_at)/3600 %>
+  <p><%= time.round %> hours</p>
     </div>
   </div>
 
