@@ -15,8 +15,6 @@
         width: 100px;
         height: 100px;
         border-radius: 50%;
-        position: relative;
-        left: 36%;
 
         margin-bottom: 30px;
         border: solid;
@@ -51,4 +49,27 @@
     p {
         color: gray;
     }
+    .topnav {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     position: relative;
+}
+
+    .topnav .center-text {
+     position: absolute;
+     left: 45%;
+     transform: translateX(-50%);
+     font-weight: 600;
+     font-size: 18px;
+}
+
+     .topnav .spacer {
+      width: 24px;
+}
+
+     .goback {
+      margin-right: auto;
+}
+
 }
