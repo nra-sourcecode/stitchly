@@ -1,7 +1,7 @@
 
-<div class="container d-flex flex-column justify-content-center text-center">      
+<div class="container-profile d-flex flex-column justify-content-center text-center mt-5">
         <img src="<%=asset_url("cat.jpg")%>" alt="Knitting Cat">
-        <h3 class=" m-0"><%= current_user.first_name %></h3>       
+        <h3 class=" m-0"><%= current_user.first_name %></h3>
        <p class="a m-0"><%= current_user.email %></p>
        <h5 class=" mt-4 mb-2">Your Projects</h5>
        <div class="projects-profile d-flex justify-content-center mt-4">
@@ -13,8 +13,8 @@
             <p>Finished</p>
             <%= @finished_projects.count %>
         </div>
-        
-       </div>  
+
+       </div>
 </div>
 <div class="profile-buttons d-flex jstify-content-around w-100">
     <%= link_to edit_user_registration_path do %>

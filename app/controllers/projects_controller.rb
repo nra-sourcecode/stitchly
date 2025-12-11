@@ -61,18 +61,15 @@ class ProjectsController < ApplicationController
     @project.user = current_user
 
     if @project.save
-      
+
       yarn_params
       ids = params[:project][:yarn_ids].reject(&:blank?)
       @amount = params[:project][:project_yarn][:amount]
       @amount = @amount.to_i
       ids.each do |yarn_id|
       ProjectYarn.create!(yarn: Yarn.find(yarn_id.to_i), project: @project, amount: @amount)
-
-
-    end
-    task_response
-
+      end
+      task_response
 
       redirect_to project_path(@project)
     else
@@ -102,7 +99,7 @@ class ProjectsController < ApplicationController
       newtask = Task.new(description: task["step_description"], title: task["step_title"])
       newtask.project = @project
       newtask.save
-    end
+      end
     end
   end
 
@@ -116,7 +113,7 @@ def update
   @project = Project.find(params[:id])
 
   if @project.update(project_params)
-    
+
     redirect_to project_path(@project)
   else
     render :edit, status: :unprocessable_entity

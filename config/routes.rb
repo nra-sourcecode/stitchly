@@ -10,7 +10,9 @@ Rails.application.routes.draw do
  get "profile", to: "pages#profile"
  get "chatbot", to: "pages#chatbot"
  root "projects#home"
-  
+  get "yarni_leftover", to: "chats#yarni_leftover", as: :yarni_leftover
+
+
   resources :projects
   get "project/finished" => "projects#finish", as: :projects_finished #link_to project_start_path(id)
 

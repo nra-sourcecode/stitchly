@@ -1,5 +1,4 @@
 import { Application } from "@hotwired/stimulus";
-import "./start_button";
 
 const application = Application.start();
 

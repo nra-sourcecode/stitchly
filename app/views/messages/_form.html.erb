@@ -1,14 +1,7 @@
 <%= simple_form_for [chat, message], html: { class: "new-message-form w-100 d-flex px-2 py-2 align-middle"} do |f| %>
       <% prefilled = chat.messages.any? ? "" : chat.content %>
-        <%= f.input_field :content, label: false, placeholder: "Ask Yarni your question...", required: true, class: "chat-form", rows: 1, value: "" %>
+        <%= f.input_field :content, label: false, placeholder: "Ask Yarni your question...", required: true, class: "chat-form", rows: 1, id: "messageInput", value: "" %>
         <%= button_tag type: :submit, class: 'no-btn-behaviour' do %>
           <i class="send-icon fa-solid fa-caret-right" style="font-size: 60px;"></i>
         <% end %>
 <% end %>
-
-
-
-
-<%# use simple form to submit on enter
-
-if not target the form with JS and tje input field as well and on the form when enter submit form %>

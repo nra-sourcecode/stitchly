@@ -8,7 +8,7 @@
 
   <div class="projects-grid">
     <% @projects.each do |project| %>
-      <%= link_to project_path(project), class: "project-card-link" do %>
+      <%= link_to project_path(project), class: "project-card-link", data: { turbo: false } do %>
         <div class="project-card">
 
           <% if project.images.attached? %>
@@ -18,16 +18,17 @@
           <% end %>
 
           <div class="card-body">
-            <h3><%= project.title.capitalize %></h3>
+            <h3 class="text-center"><%= project.title.capitalize %></h3>
           </div>
 
           <div class="difficulty">
-            <p><%= (project.difficulty.presence || "Unknown").capitalize %></p>
+            <p class="text-center"><%= (project.difficulty.presence || "Unknown").capitalize %></p>
           </div>
 
-          <div class="progress d-flex flex-row-reverse">
-            <span><%= project.percentage %>%</span>
-          </div>
+        <div class="progress d-flex mt-2 justify-content-around">
+  <p class="label">Progress</p>
+  <span><%= project.percentage %>%</span>
+</div>
 
         </div>
       <% end %>
@@ -56,31 +57,33 @@
     <span><%= link_to "See all", projects_finished_path, class: "see-all" %></span>
   </h2>
 
-<div class="projects-grid">
-  <% @finished_projects.each do |project| %>
-    <%= link_to project_path(project), class: "project-card-link" do %>
-      <div class="project-card">
+  <div class="projects-grid">
+    <% @finished_projects.each do |project| %>
+      <%= link_to project_path(project), class: "project-card-link" do %>
+        <div class="project-card">
 
-        <% if project.images.attached? %>
-          <%= image_tag project.images.last, alt: "#{project.title} image" %>
-        <% else %>
-          <%= image_tag "sweater.webp", alt: "Placeholder" %>
-        <% end %>
+          <% if project.images.attached? %>
+            <%= image_tag project.images.last, alt: "#{project.title} image" %>
+          <% else %>
+            <%= image_tag "sweater.webp", alt: "Placeholder" %>
+          <% end %>
 
-        <div class="card-body">
-          <h3><%= project.title.capitalize %></h3>
-        </div>
+          <div class="card-body">
+            <h3 class="text-center"><%= project.title.capitalize %></h3>
+          </div>
 
-        <div class="difficulty">
-          <p><%= (project.difficulty.presence || "Unknown").capitalize %></p>
-        </div>
+          <div class="difficulty">
+            <p class="text-center"><%= (project.difficulty.presence || "Unknown").capitalize %></p>
+          </div>
 
-        <div class="progress d-flex flex-row-reverse">
-          <span><%= project.percentage %>%</span>
-        </div>
-
-      </div>
-    <% end %>
-  <% end %>
+<div class="progress d-flex mt-2 justify-content-evenly">
+  <p class="label">Progress</p>
+  <span><%= project.percentage %>%</span>
 </div>
+
+        </div>
+
+      <% end %>
+    <% end %>
+  </div>
 <% end %>

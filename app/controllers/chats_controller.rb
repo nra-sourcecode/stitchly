@@ -27,6 +27,20 @@ class ChatsController < ApplicationController
     redirect_to chat_path(@chat)
   end
 
+  def yarni_leftover
+        @chat = Chat.new
+    @chat.user = current_user
+
+
+    @chat.save
+      # create the first assistant message
+      @chat.messages.create!(
+        role: "assistant",
+        content: "Hello, this is Yarni! I'm ready to help. How much yarn levtover do you have?"
+      )
+    redirect_to chat_path(@chat)
+  end
+
   def show
     @chat = Chat.find(params[:id])
     @messages = @chat.messages.order(:created_at)
