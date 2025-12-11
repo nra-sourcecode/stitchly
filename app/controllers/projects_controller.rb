@@ -125,7 +125,7 @@ def destroy
   @project.yarns.destroy_all
   @project.tasks.destroy_all
   @project.destroy
-  redirect_to projects_finished_path, status: :see_other
+  redirect_to projects_path, status: :see_other
 end
 
 
