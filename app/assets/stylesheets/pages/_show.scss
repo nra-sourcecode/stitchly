@@ -18,9 +18,10 @@ img {
   padding: 0 6%;
 }
 
-.project-title {
+.project-description-title {
   font-size: 18px;
   font-weight: 550;
+  color:#a7727d;
 }
 
 .project-difficulty {
@@ -29,12 +30,13 @@ img {
 
 // Description
 .project-description .description {
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 550;
   margin-bottom: 8px;
+  color: #a7727d;
 }
 
-.project-description p {
+.project-inputs p {
   font-size: 12px;
   margin-bottom: 1px;
 }
