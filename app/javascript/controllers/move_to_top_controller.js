@@ -8,9 +8,12 @@ export default class extends Controller {
       mutations.forEach((mutation) => {
         mutation.addedNodes.forEach((node) => {
           // Detect a turbo-stream applied update
-          if (node.nodeType === 1) {
-            // console.log(node.classList[1]);
-            this.handleNewMessage(node);
+          if (
+            node.nodeType === 1 &&
+            node.classList?.contains("message") &&
+            node.classList?.contains("assistant")
+          ) {
+            this.handleNewAssistantMessage(node);
           }
         });
       });
@@ -23,12 +26,12 @@ export default class extends Controller {
     this.observer.disconnect();
   }
 
-  handleNewMessage(node) {
+  handleNewAssistantMessage(node) {
     const messages = document.getElementById("messages");
     const assistantMessages =
       messages.getElementsByClassName("message assistant");
     const lastMessage = assistantMessages[assistantMessages.length - 1];
     console.log("LAST MESSAGE = ", lastMessage);
-    lastMessage.scrollIntoView({ behavior: "smooth" });
+    node.scrollIntoView({ behavior: "smooth" });
   }
 }
