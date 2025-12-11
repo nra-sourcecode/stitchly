@@ -7,6 +7,7 @@ export default class extends Controller {
     this.observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
         mutation.addedNodes.forEach((node) => {
+          console.log("NODE", node);
           // Detect a turbo-stream applied update
           if (
             node.nodeType === 1 &&

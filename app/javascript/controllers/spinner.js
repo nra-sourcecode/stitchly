@@ -1,10 +1,8 @@
-// document.addEventListener("DOMContentLoaded", () => {
-const form = document.getElementById("new_project");
+const createButton = document.getElementById("sendButton");
 const spinner = document.getElementById("spinner");
+const error = document.getElementsByClassName("invalid-feedback");
 
 if (spinner)
-  form.addEventListener("submit", () => {
-    console.log(spinner);
+  createButton.addEventListener("click", () => {
     spinner.classList.remove("d-none");
   });
-// });
